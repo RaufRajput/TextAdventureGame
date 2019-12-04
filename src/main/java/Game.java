@@ -1,18 +1,17 @@
 public class Game implements Fight {
 
-
     @Override
-    public boolean fight() {
-        return false;
+    public void fight(boolean isFighting) {
+
     }
 
     @Override
-    public int attack() {
-        return 0;
+    public void attack(int a) {
+
     }
 
     @Override
-    public int defense() {
-        return 0;
+    public void defense(int a) {
+
     }
 }
