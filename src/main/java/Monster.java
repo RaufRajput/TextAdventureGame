@@ -1,8 +1,6 @@
 package main;
 
 public class Monster implements CreatureManager {
-
-
     @Override
     public void Health(int a) {
 
