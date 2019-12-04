@@ -1,6 +1,4 @@
-package main;
-
-public class Player implements CreatureManager {
+public class Monster implements CreatureManager {
     @Override
     public void Health(int a) {
 
