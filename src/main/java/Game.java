@@ -1,6 +1,17 @@
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class Game implements Fight {
+
+    @FXML
+    Button firstButton;
+    @FXML
+    Button secondButton;
+    @FXML
+    Button thirdButton;
+    @FXML
+    Button fourthButton;
 
     @Override
     public void fight(boolean isFighting) {
