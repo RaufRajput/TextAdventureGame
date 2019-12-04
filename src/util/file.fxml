@@ -51,6 +51,7 @@
             <ProgressBar prefWidth="200.0" progress="0.0" />
          </children>
       </VBox>
+      </VBox>
    </left>
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
