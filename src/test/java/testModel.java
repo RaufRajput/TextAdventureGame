@@ -1,7 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
-import javafx.beans.property.SimpleDoubleProperty;
 import org.junit.jupiter.api.*;
 
+import javafx.beans.property.SimpleDoubleProperty;
+
+
+@DisplayName("Smurf test of Model")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class testModel {
     private Model model;
@@ -19,21 +22,25 @@ public class testModel {
     }
 
     @Test
-    @DisplayName("Check Player Health property")
-    void testHealtPlayernIsReturningADouble(){
+    @Order(1)
+    @DisplayName("Checking Player Health property")
+    void testHealtPlayernIsReturningADouble(TestInfo info){
         health=model.playerHealthProperty();
         model.setPlayerHealth(100);
        assertEquals(health,model.playerHealthProperty());
        assertEquals(100,model.playerHealthProperty().doubleValue());
+        System.out.println(info.getDisplayName());
 
     }
 
     @Test
-    @DisplayName("Check Monster Health property")
-    void testHealthMonsterIsReturningADouble(){
+    @Order(2)
+    @DisplayName("Checking Monster Health property")
+    void testHealthMonsterIsReturningADouble(TestInfo info){
         health=model.monsterHealthProperty();
         model.setMonsterHealth(100);
         assertEquals(health,model.monsterHealthProperty());
         assertEquals(100,model.monsterHealthProperty().doubleValue());
+        System.out.println(info.getDisplayName());
     }
 }
