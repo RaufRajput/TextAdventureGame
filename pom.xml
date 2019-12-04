@@ -10,7 +10,7 @@
 
     <developers>
         <developer>
-            <name>Johanna Svallingsson</name>
+            <name>Johanna Svallingson</name>
             <email>svallingson@gmail.com</email>
             <roles>
                 <role>developer</role>
@@ -110,6 +110,19 @@
             <artifactId>maven-plugin-api</artifactId>
             <version>3.6.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>11</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
