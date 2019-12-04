@@ -79,6 +79,7 @@
             <version>11</version>
         </dependency>
 
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
@@ -96,7 +97,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>11</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -138,4 +138,5 @@
 
         </plugins>
     </build>
+
 </project>
