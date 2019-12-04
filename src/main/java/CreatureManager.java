@@ -1,3 +1,5 @@
+package main.java;
+
 public interface CreatureManager {
     void Health (int a);
     void gender (Gender gender);
