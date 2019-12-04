@@ -1,6 +1,6 @@
 git fetch
 git checkout Developer
 git pull
-git checkout anton
+git checkout nicklas
 git merge Developer
 git pull
