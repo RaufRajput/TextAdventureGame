@@ -1,9 +1,15 @@
 package main;
 
-public class Monster implements CreateMonster {
+public class Monster implements CreatureManager {
+
 
     @Override
     public void Health(int a) {
+
+    }
+
+    @Override
+    public void gender(Gender gender) {
 
     }
 
