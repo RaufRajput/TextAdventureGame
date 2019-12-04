@@ -1,6 +1,6 @@
 
 public interface Fight {
-    boolean fight();
-    int attack();
-    int defense();
+    void fight(boolean isFighting);
+    void attack(int a);
+    void defense(int a);
 }
