@@ -12,6 +12,8 @@ public class Game implements Fight {
     Button thirdButton;
     @FXML
     Button fourthButton;
+    @FXML
+
 
     @Override
     public void fight(boolean isFighting) {
