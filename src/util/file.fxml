@@ -37,11 +37,11 @@
       </GridPane>
    </bottom>
    <left>
-      <VBox prefHeight="202.0" prefWidth="115.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="202.0" prefWidth="102.0" BorderPane.alignment="CENTER">
          <children>
             <ProgressBar prefWidth="200.0" progress="0.0">
                <VBox.margin>
-                  <Insets top="120.0" />
+                  <Insets bottom="5.0" top="120.0" />
                </VBox.margin>
             </ProgressBar>
             <ProgressBar prefWidth="200.0" progress="0.0" />
