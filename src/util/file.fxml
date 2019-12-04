@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Canvas height="200.0" width="363.0" BorderPane.alignment="CENTER" />
+      <Canvas height="200.0" width="353.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <ImageView fitHeight="80.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
@@ -37,11 +37,11 @@
       </GridPane>
    </bottom>
    <left>
-      <VBox prefHeight="202.0" prefWidth="115.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="202.0" prefWidth="98.0" BorderPane.alignment="CENTER">
          <children>
             <ProgressBar prefWidth="200.0" progress="0.0">
                <VBox.margin>
-                  <Insets top="120.0" />
+                  <Insets bottom="5.0" top="120.0" />
                </VBox.margin>
             </ProgressBar>
             <ProgressBar prefWidth="200.0" progress="0.0" />
