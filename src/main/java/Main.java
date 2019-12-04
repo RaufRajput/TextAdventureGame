@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader ();
         loader.setLocation(getClass().getResource("file.fxml"));
-        model = new Model ();
+        model = Model.getInstance();
        loader.setControllerFactory (param -> new Game(model));
        Parent root = loader.load ();
 
