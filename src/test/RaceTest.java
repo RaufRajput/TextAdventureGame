@@ -6,7 +6,7 @@ class RaceTest {
 
     @Test
     void TestRaceEnums() {
-        Assertions.assertEquals("HUMAN", Race.HUMAN.toString());
+        assertEquals("HUMAN", Race.HUMAN.toString());
         assertEquals("ELF", Race.ELF.toString());
         assertEquals("OGRE", Race.OGRE.toString());
         assertEquals("TROLL", Race.TROLL.toString());
