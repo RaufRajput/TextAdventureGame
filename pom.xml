@@ -7,38 +7,7 @@
     <groupId>se.iths.Teamsmurf</groupId>
     <artifactId>Team-smurf-Text-Adventure-Game</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <developers>
-        <developer>
-            <name>Johanna Svallingsson</name>
-            <email>svallingson@gmail.com</email>
-            <roles>developer</roles>
-        </developer>
-        <developer>
-            <name>Rickard Forslund</name>
-            <email>rickard.forslund@live.se</email>
-            <roles>developer</roles>
-        </developer>
-        <developer>
-            <name>Nicklas Johansson</name>
-            <email>Nicklas.c.Johansson@gmail.com</email>
-            <roles>developer</roles>
-        </developer>
-        <developer>
-            <name>Anton Johansson</name>
-            <email>anton.elis@hotmail.com</email>
-            <roles>developer</roles>
-        </developer>
-        <developer>
-            <name>Rauf Rajput</name>
-            <email>r.rajput@hotmail.com</email>
-            <roles>developer</roles>
-        </developer>
-        <developer>
-            <name>Elena Ten</name>
-            <email>xiztencia@gmail.com</email>
-            <roles>developer</roles>
-        </developer>
-    </developers>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -67,6 +36,7 @@
             <version>11</version>
         </dependency>
 
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
@@ -84,7 +54,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>11</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -118,4 +87,5 @@
 
         </plugins>
     </build>
+
 </project>
