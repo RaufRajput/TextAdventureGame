@@ -11,8 +11,7 @@ public class Model {
     private SimpleDoubleProperty playerHealth = new  SimpleDoubleProperty();
     private SimpleDoubleProperty monsterHealth = new  SimpleDoubleProperty();
     private Model(){
-
-    }
+   }
     public static Model getInstance() {
         // If there is no instance available, create new one (i.e. lazy initialization).
         if (instance == null) {
