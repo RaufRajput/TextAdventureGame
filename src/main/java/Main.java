@@ -28,7 +28,7 @@ public class Main extends Application {
         controller.setStage (primaryStage);
         primStage = primaryStage;
         primaryStage.setTitle ("Monster");
-        primaryStage.setScene (new Scene (root, 600, 400));
+        primaryStage.setScene (new Scene (root, 800, 600));
        controller.init (primaryStage.getScene ());
         primaryStage.show ();
 
