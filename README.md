@@ -8,11 +8,11 @@
 
   <h1 align="center"> :star2: Developers :star2: </h1>
   <p align="center">
-      &emsp; &emsp; Johanna Svallingsson      <br />
-      &emsp; &emsp; Rickard Forslund      <br />
-      &emsp; &emsp; Nicklas Johansson      <br />
-      &emsp; &emsp; Anton Johansson    <br />
-     &emsp; &emsp;  Rauf Rajput    <br />
-     &emsp; &emsp;  Elena Ten   </p>
+      &emsp; &emsp; &emsp;Johanna Svallingsson      <br />
+      &emsp; &emsp;&emsp; Rickard Forslund      <br />
+      &emsp; &emsp;&emsp; Nicklas Johansson      <br />
+      &emsp; &emsp;&emsp; Anton Johansson    <br />
+     &emsp; &emsp;&emsp;  Rauf Rajput    <br />
+     &emsp; &emsp;&emsp;  Elena Ten   </p>
 <br />
 <hr>
