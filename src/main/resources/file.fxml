@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -35,7 +36,7 @@
    </bottom>
    <left>
 
-      <VBox prefHeight="202.0" prefWidth="98.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="202.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -63,6 +64,10 @@
       </VBox>
    </right>
    <center>
-      <AnchorPane prefHeight="330.0" prefWidth="532.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="313.0" prefWidth="596.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="609.0" layoutX="-3.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
+            <TextArea layoutX="-3.0" layoutY="-7.0" prefHeight="226.0" prefWidth="609.0" />
+         </children></AnchorPane>
    </center>
 </BorderPane>
