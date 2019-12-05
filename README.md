@@ -8,7 +8,7 @@
 
   <h1 align="center"> :star2: Developers :star2: </h1>
   <p align="center">
-      &emsp; &emsp; &emsp;Johanna Svallingsson      <br />
+      &emsp; &emsp; &emsp;Johanna Svallingson      <br />
       &emsp; &emsp;&emsp; Rickard Forslund      <br />
       &emsp; &emsp;&emsp; Nicklas Johansson      <br />
       &emsp; &emsp;&emsp; Anton Johansson    <br />
