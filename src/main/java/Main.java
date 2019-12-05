@@ -21,7 +21,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader ();
         loader.setLocation(getClass().getResource("file.fxml"));
         model = Model.getInstance();
-       loader.setControllerFactory (param -> new Game(model));
+       loader.setControllerFactory (param -> Game.getInstance(model));
        Parent root = loader.load ();
 
         controller = loader.getController ();
@@ -35,3 +35,5 @@ public class Main extends Application {
 
     }
 }
+//TODO Göra om Controller till Singelton  (fila på Lösning...)
+//TODO Behålla Model som Singelton?
