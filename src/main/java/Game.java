@@ -21,11 +21,11 @@ public class Game implements Fight {
     @FXML
     Button fourthButton;
    // @FXML
-
+    private static Game instance = null;
     private Model model;
     Stage stage;
 
-    public Game(Model model){
+    private Game(Model model){
         this.model=model;
     }
 
@@ -37,6 +37,13 @@ public class Game implements Fight {
         //Next line replaces onAction="#button1Action" in fxml file
         //button1.addEventHandler(ActionEvent.ACTION,this::button1Action);
 
+    }
+    public static Game getInstance(Model model) {
+        // If there is no instance available, create new one (i.e. lazy initialization).
+        if (instance == null) {
+            instance = new Game(model);
+        }
+        return instance;
     }
     public void init(Scene scene) {
 
