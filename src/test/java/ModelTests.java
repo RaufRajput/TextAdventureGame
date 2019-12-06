@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 
 @DisplayName("Smurf test of Model")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class Modeltests {
+public class ModelTests {
     private Model model;
     private SimpleDoubleProperty health;
 

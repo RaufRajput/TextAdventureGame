@@ -25,9 +25,19 @@ public class Game implements Fight {
     private Model model;
     Stage stage;
 
+    //<editor-fold desc="Singelton Constructor">
     private Game(Model model){
         this.model=model;
     }
+
+    public static Game getInstance(Model model) {
+        // If there is no instance available, create new one (i.e. lazy initialization).
+        if (instance == null) {
+            instance = new Game(model);
+        }
+        return instance;
+    }
+    //</editor-fold>
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -38,13 +48,7 @@ public class Game implements Fight {
         //button1.addEventHandler(ActionEvent.ACTION,this::button1Action);
 
     }
-    public static Game getInstance(Model model) {
-        // If there is no instance available, create new one (i.e. lazy initialization).
-        if (instance == null) {
-            instance = new Game(model);
-        }
-        return instance;
-    }
+
     public void init(Scene scene) {
 
     }

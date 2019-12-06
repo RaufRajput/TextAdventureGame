@@ -10,6 +10,7 @@ public class Model {
     private static Model instance = null;
     private SimpleDoubleProperty playerHealth = new  SimpleDoubleProperty();
     private SimpleDoubleProperty monsterHealth = new  SimpleDoubleProperty();
+
     private Model(){
    }
     public static Model getInstance() {

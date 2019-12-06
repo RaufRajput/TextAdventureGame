@@ -28,11 +28,9 @@ public class Main extends Application {
         controller.setStage (primaryStage);
         primStage = primaryStage;
         primaryStage.setTitle ("Monster");
-        primaryStage.setScene (new Scene (root, 600, 400));
+        primaryStage.setScene (new Scene (root));
        controller.init (primaryStage.getScene ());
         primaryStage.show ();
-
-
     }
 }
 //TODO Göra om Controller till Singelton  (fila på Lösning...)
