@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
+<BorderPane maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
    <top>
 
       <ImageView fx:id="loggoImage" fitHeight="120.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
@@ -27,10 +27,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="firstButton" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="214.0" prefWidth="451.0" text="Button" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="159.0" prefWidth="534.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="193.0" prefWidth="498.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="95.0" prefWidth="490.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="firstButton" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </bottom>
@@ -67,7 +67,7 @@
       <AnchorPane prefHeight="308.0" prefWidth="586.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="100.0" fitWidth="602.0" layoutX="4.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
-            <TextArea layoutX="4.0" layoutY="-7.0" prefHeight="226.0" prefWidth="603.0" />
+            <TextArea layoutX="4.0" layoutY="-7.0" prefHeight="226.0" prefWidth="603.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children></AnchorPane>
    </center>
 </BorderPane>
