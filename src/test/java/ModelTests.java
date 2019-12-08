@@ -30,9 +30,16 @@ public class ModelTests {
        assertEquals(health,model.playerHealthProperty());
        assertEquals(100,model.playerHealthProperty().doubleValue());
         System.out.println(info.getDisplayName());
-
     }
 
+    @Test
+    @Order(3)
+    @DisplayName("Checking for a monster in the list")
+    void testMonesterobjektisofSameClass(){
+        Monster m =new Monster();
+        assertEquals(m.getClass(),model.getMonster(0).getClass());
+        m=null;
+    }
     @Test
     @Order(2)
     @DisplayName("Checking Monster Health property")

@@ -18,6 +18,7 @@ public class Model {
     private List<String> sceneList = new ArrayList<>();
 
     private Model(){
+        monsterList.add(new Monster());
    }
     public static Model getInstance() {
         // If there is no instance available, create new one (i.e. lazy initialization).
