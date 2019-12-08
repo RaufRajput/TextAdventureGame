@@ -23,7 +23,8 @@ public class Game implements Fight {
    // @FXML
     private static Game instance = null;
     private Model model;
-    Stage stage;
+    private Stage stage;
+    private Monster currentMonster;
 
     //<editor-fold desc="Singelton Constructor">
     private Game(Model model){
