@@ -35,9 +35,10 @@ public class ModelTests {
     @Test
     @Order(3)
     @DisplayName("Checking for a monster in the list")
-    void testMonesterobjektisofSameClass(){
+    void testMonesterobjektisofSameClass(TestInfo info){
         Monster m =new Monster();
         assertEquals(m.getClass(),model.getMonster(0).getClass());
+        System.out.println(info.getDisplayName());
         m=null;
     }
     @Test
