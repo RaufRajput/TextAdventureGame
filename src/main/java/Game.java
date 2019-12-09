@@ -1,13 +1,7 @@
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Game implements Fight {
@@ -25,6 +19,7 @@ public class Game implements Fight {
     private Model model;
     private Stage stage;
     private Monster currentMonster;
+    private Player player;
 
     //<editor-fold desc="Singelton Constructor">
     private Game(Model model){
@@ -44,6 +39,11 @@ public class Game implements Fight {
         this.stage = stage;
     }
     public void initialize() {
+        player = new Player();
+        firstButton.setText("Start Monster Punch Game!");
+        secondButton.setVisible(false);
+        thirdButton.setVisible(false);
+        fourthButton.setVisible(false);
         //Will run after all fields are set and view is ready
         //Next line replaces onAction="#button1Action" in fxml file
         //button1.addEventHandler(ActionEvent.ACTION,this::button1Action);
@@ -69,6 +69,16 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
+        if(firstButton.textProperty().equals("Start Monster Punch Game!")){
+            createNewPlayer();
+        }
+        else if(firstButton.textProperty().equals("Lady Smurf")){
+            player.setGender(Gender.FEMALE);
+            System.out.println(player.getGender().name());
+        }
+        else if(firstButton.textProperty().equals("Boy Smurf")){
+            player.setGender(Gender.MALE);
+        }
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
@@ -78,5 +88,12 @@ public class Game implements Fight {
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
+    }
+
+    public void createNewPlayer(){
+        firstButton.setText("Lady Smurf");
+        secondButton.setText("Boy Smurf");
+
+
     }
 }
