@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class Game implements Fight {
@@ -16,7 +17,9 @@ public class Game implements Fight {
     Button thirdButton;
     @FXML
     Button fourthButton;
-   // @FXML
+    @FXML
+    TextArea textArea;
+
     private static Game instance = null;
     private Model model;
     private Stage stage;
@@ -42,8 +45,9 @@ public class Game implements Fight {
     }
     public void initialize() {
 
+        textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player();
-        firstButton.setText("Start Monster Punch Game!");
+        firstButton.setText("start");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
@@ -71,8 +75,7 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
-
-            if(firstButton.getText().equals("Start Monster Punch Game!")) {
+            if(firstButton.getText().equals("start")) {
                 thirdButton.setVisible(true);
                 createNewPlayer();
             }
@@ -97,6 +100,7 @@ public class Game implements Fight {
     }
 
     public void createNewPlayer(){
+        textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
 
