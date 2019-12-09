@@ -26,11 +26,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-             <Button fx:id="firstButton" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="80.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" />
          </children>
       </GridPane>
    </bottom>
