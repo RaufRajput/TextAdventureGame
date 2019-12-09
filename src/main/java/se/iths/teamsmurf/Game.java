@@ -41,15 +41,15 @@ public class Game implements Fight {
         this.stage = stage;
     }
     public void initialize() {
+
         player = new Player();
         firstButton.setText("Start Monster Punch Game!");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
+        firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
         //Will run after all fields are set and view is ready
         //Next line replaces onAction="#button1Action" in fxml file
-        //button1.addEventHandler(ActionEvent.ACTION,this::button1Action);
-
     }
 
     public void init(Scene scene) {
@@ -71,6 +71,7 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
+
           //  if(firstButton.textProperty().equals("Start Monster Punch Game!")) {
                 secondButton.setVisible(true);
                 createNewPlayer();
