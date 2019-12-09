@@ -1,4 +1,4 @@
-
+package se.iths.teamsmurf;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,20 +18,20 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader ();
+        FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("file.fxml"));
         model = Model.getInstance();
-       loader.setControllerFactory (param -> Game.getInstance(model));
-       Parent root = loader.load ();
+       loader.setControllerFactory(param -> Game.getInstance(model));
+       Parent root = loader.load();
 
-        controller = loader.getController ();
-        controller.setStage (primaryStage);
+        controller = loader.getController();
+        controller.setStage(primaryStage);
         primStage = primaryStage;
-        primaryStage.setTitle ("Monster");
-        primaryStage.setScene (new Scene (root));
-       controller.init (primaryStage.getScene ());
-        primaryStage.show ();
+        primaryStage.setTitle("Monster");
+        primaryStage.setScene(new Scene (root));
+        controller.init (primaryStage.getScene ());
+        primaryStage.show();
     }
 }
 //TODO Göra om Controller till Singelton  (fila på Lösning...)
-//TODO Behålla Model som Singelton?
+//TODO Behålla se.iths.teamsmurf.Model som Singelton?

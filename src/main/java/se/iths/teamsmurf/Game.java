@@ -1,3 +1,5 @@
+package se.iths.teamsmurf;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -40,7 +42,7 @@ public class Game implements Fight {
     }
     public void initialize() {
         player = new Player();
-        firstButton.setText("Start Monster Punch Game!");
+        firstButton.setText("Start se.iths.teamsmurf.Monster Punch se.iths.teamsmurf.Game!");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
@@ -69,19 +71,21 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
-        if(firstButton.textProperty().equals("Start Monster Punch Game!")){
-            createNewPlayer();
-        }
+            if(firstButton.textProperty().equals("Start se.iths.teamsmurf.Monster Punch se.iths.teamsmurf.Game!")) {
+                secondButton.setVisible(true);
+                createNewPlayer();
+            }
+
         else if(firstButton.textProperty().equals("Lady Smurf")){
             player.setGender(Gender.FEMALE);
-            System.out.println(player.getGender().name());
         }
-        else if(firstButton.textProperty().equals("Boy Smurf")){
-            player.setGender(Gender.MALE);
-        }
+
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
+           if(secondButton.textProperty().equals("Boy Smurf")){
+            player.setGender(Gender.MALE);
+        }
     }
 
     public void thirdButtonAction(ActionEvent actionEvent) {

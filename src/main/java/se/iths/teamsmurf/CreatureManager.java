@@ -1,3 +1,4 @@
+package se.iths.teamsmurf;
 
 public interface CreatureManager {
     void Health (int a);

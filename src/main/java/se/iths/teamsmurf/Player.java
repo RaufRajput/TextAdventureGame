@@ -1,3 +1,4 @@
+package se.iths.teamsmurf;
 
 public class Player implements PlayerManager {
 

@@ -1,9 +1,6 @@
-import javafx.application.*;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.DoubleProperty;
+package se.iths.teamsmurf;
+
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 import java.util.ArrayList;
 import java.util.List;

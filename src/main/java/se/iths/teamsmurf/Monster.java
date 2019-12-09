@@ -1,4 +1,4 @@
-
+package se.iths.teamsmurf;
 
 public class Monster implements CreatureManager {
     @Override
