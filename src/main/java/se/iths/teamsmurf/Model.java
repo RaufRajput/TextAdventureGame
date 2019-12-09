@@ -15,7 +15,10 @@ public class Model {
     private List<String> sceneList = new ArrayList<>();
 
     private Model(){
-        monsterList.add(new Monster());
+        monsterList.add(new Monster(30,Race.ELF));
+        monsterList.add(new Monster(60,Race.TROLL));
+        monsterList.add(new Monster(80,Race.OGRE));
+        monsterList.add(new Monster(100,Race.HUMAN));
    }
     public static Model getInstance() {
         // If there is no instance available, create new one (i.e. lazy initialization).

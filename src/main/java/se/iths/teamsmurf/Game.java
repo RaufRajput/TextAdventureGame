@@ -16,7 +16,7 @@ public class Game implements Fight {
     Button thirdButton;
     @FXML
     Button fourthButton;
-   // @FXML
+    @FXML
     private static Game instance = null;
     private Model model;
     private Stage stage;
@@ -77,14 +77,14 @@ public class Game implements Fight {
                 createNewPlayer();
             }
         else
-        if(firstButton.textProperty().equals("Lady Smurf")){
+        if(firstButton.getText().equals("Lady Smurf")){
             player.setGender(Gender.FEMALE);
         }
 
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
-           if(secondButton.textProperty().equals("Boy Smurf")){
+           if(secondButton.getText().equals("Boy Smurf")){
             player.setGender(Gender.MALE);
         }
     }
