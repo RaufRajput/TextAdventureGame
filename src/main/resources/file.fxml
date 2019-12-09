@@ -20,7 +20,7 @@
          </image></ImageView>
    </top>
    <bottom>
-      <GridPane prefHeight="160.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="170.0" prefWidth="800.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,10 +30,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="80.0" prefWidth="400.0" text="Button" />
+            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="114.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="127.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" text="Button" />
          </children>
       </GridPane>
    </bottom>
@@ -80,8 +80,8 @@
    <center>
       <AnchorPane prefHeight="320.0" prefWidth="570.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="textArea" layoutX="17.0" prefHeight="319.0" prefWidth="585.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
-            <ImageView fitHeight="320.0" fitWidth="584.0" layoutX="17.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <TextArea fx:id="textArea" layoutX="32.0" prefHeight="309.0" prefWidth="569.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+            <ImageView fitHeight="310.0" fitWidth="584.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="https://imgur.com/j5KyDFQ.png" />
                </image></ImageView>
