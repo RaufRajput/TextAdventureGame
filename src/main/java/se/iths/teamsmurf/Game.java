@@ -47,9 +47,9 @@ public class Game implements Fight {
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
-        firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
-        //Will run after all fields are set and view is ready
         //Next line replaces onAction="#button1Action" in fxml file
+       // firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
+        //Will run after all fields are set and view is ready
     }
 
     public void init(Scene scene) {
@@ -72,11 +72,11 @@ public class Game implements Fight {
 
     public void firstButtonAction(ActionEvent actionEvent) {
 
-          //  if(firstButton.textProperty().equals("Start Monster Punch Game!")) {
+            if(firstButton.getText().equals("Start Monster Punch Game!")) {
                 secondButton.setVisible(true);
                 createNewPlayer();
-          //  }
-        //else
+            }
+        else
         if(firstButton.textProperty().equals("Lady Smurf")){
             player.setGender(Gender.FEMALE);
         }
