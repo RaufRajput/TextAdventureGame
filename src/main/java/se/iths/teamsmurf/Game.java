@@ -79,11 +79,20 @@ public class Game implements Fight {
                 thirdButton.setVisible(true);
                 createNewPlayer();
             }
-        else
-        if(firstButton.getText().equals("Lady Smurf")){
+        else if(firstButton.getText().equals("Lady Smurf")){
             player.setGender(Gender.FEMALE);
+            textArea.setText("You have chosen Lady Smurf");
+            thirdButton.setVisible(false);
+            firstButton.setText("Continue");
         }
 
+        else if(firstButton.getText().equals("Continue")){
+            textArea.setText("Welcome to Smurfville. " +
+                    "\nThis is a peaceful village where you live with thousands of other smurfs. " +
+                    "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
+                    "\nYou are the chosen one to protect your village when that occurs.");
+            firstButton.setText("Enter Smurfville");
+            }
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
@@ -93,6 +102,9 @@ public class Game implements Fight {
     public void thirdButtonAction(ActionEvent actionEvent) {
         if(thirdButton.getText().equals("Boy Smurf")){
             player.setGender(Gender.MALE);
+            textArea.setText("You have chosen Boy Smurf");
+            thirdButton.setVisible(false);
+            firstButton.setText("Continue");
         }
     }
 
@@ -103,6 +115,7 @@ public class Game implements Fight {
         textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
+
 
 
     }
