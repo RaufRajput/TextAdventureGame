@@ -54,9 +54,18 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://imgur.com/4egx18K.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="https://imgur.com/3l792K8.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="https://imgur.com/pfyrYWS.png" />
+                     </image></ImageView>
                </children>
             </GridPane>
          </children>
@@ -66,7 +75,7 @@
       <AnchorPane prefHeight="308.0" prefWidth="586.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="99.0" fitWidth="600.0" layoutX="1.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" />
-            <TextArea fx:id="textArea" layoutX="4.0" layoutY="15.0" prefHeight="217.0" prefWidth="601.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+            <TextArea fx:id="textArea" layoutX="4.0" layoutY="5.0" prefHeight="236.0" prefWidth="601.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
          </children></AnchorPane>
    </center>
 </BorderPane>
