@@ -42,7 +42,7 @@ public class Game implements Fight {
     }
     public void initialize() {
         player = new Player();
-        firstButton.setText("Start se.iths.teamsmurf.Monster Punch se.iths.teamsmurf.Game!");
+        firstButton.setText("Start Monster Punch Game!");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
@@ -71,12 +71,12 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
-            if(firstButton.textProperty().equals("Start se.iths.teamsmurf.Monster Punch se.iths.teamsmurf.Game!")) {
+          //  if(firstButton.textProperty().equals("Start Monster Punch Game!")) {
                 secondButton.setVisible(true);
                 createNewPlayer();
-            }
-
-        else if(firstButton.textProperty().equals("Lady Smurf")){
+          //  }
+        //else
+        if(firstButton.textProperty().equals("Lady Smurf")){
             player.setGender(Gender.FEMALE);
         }
 
