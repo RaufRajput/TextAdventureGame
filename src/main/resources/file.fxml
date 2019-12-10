@@ -31,6 +31,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <AnchorPane prefHeight="200.0" prefWidth="515.0" style="-fx-background-color: black;" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="114.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="127.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
@@ -45,7 +49,7 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefHeight="310.0" prefWidth="100.0">
+            <GridPane prefHeight="307.0" prefWidth="100.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
