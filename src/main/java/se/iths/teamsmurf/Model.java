@@ -20,6 +20,8 @@ public class Model {
         monsterList.add(new Monster(60,Race.TROLL));
         monsterList.add(new Monster(80,Race.OGRE));
         monsterList.add(new Monster(100,Race.HUMAN));
+
+        sceneList.add("U are having tacos");
    }
     public static Model getInstance() {
         // If there is no instance available, create new one (i.e. lazy initialization).
