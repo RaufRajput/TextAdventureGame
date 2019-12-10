@@ -94,9 +94,8 @@ public class Game implements Fight {
     }
 
     public void runAndHide2(){
-        if(randomDouble() <=0.8){
+        if(randomDouble() >=0.8){
             textArea.setText("You failed to hide");
-
             endTextMethodAfterRun();
         }
         else {
