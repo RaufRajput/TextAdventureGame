@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <BorderPane maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.teamsmurf.Game">
    <top>
 
@@ -46,15 +59,14 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="74.19998779296876" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="74.19998779296876" minHeight="7.799993896484381" prefHeight="34.00000000000001" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="147.00000610351563" minHeight="10.0" prefHeight="52.400000000000006" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="180.79999389648438" minHeight="10.0" prefHeight="120.60001220703126" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="32.199981689453125" minHeight="7.800024414062477" prefHeight="34.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="86.39998779296874" minHeight="10.0" prefHeight="86.39998779296874" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="147.00000610351563" minHeight="10.0" prefHeight="34.20000610351562" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="180.79999389648438" minHeight="10.0" prefHeight="93.39999389648438" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="47.199993896484386" minHeight="7.800024414062477" prefHeight="47.199993896484386" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="50.99997558593748" minHeight="10.0" prefHeight="50.99997558593748" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fill="#da0707" fontSmoothingType="LCD" stroke="#1e1d1d" strokeType="OUTSIDE" text="Monster Health" textAlignment="CENTER" GridPane.rowIndex="2">
+                  <Text fill="#da0707" fontSmoothingType="LCD" stroke="#1e1d1d" strokeType="OUTSIDE" text="Monster Health" textAlignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="3.0" top="10.0" />
                      </GridPane.margin>
@@ -62,7 +74,7 @@
                         <Font name="System Bold Italic" size="13.0" />
                      </font>
                   </Text>
-                  <Text fill="#0fe80c" fontSmoothingType="LCD" stroke="#101110" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Your Health" textAlignment="CENTER" GridPane.rowIndex="5">
+                  <Text fill="#0fe80c" fontSmoothingType="LCD" stroke="#101110" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Your Health" textAlignment="CENTER" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -70,13 +82,28 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField fx:id="enemyHealthBar" maxHeight="30.0" maxWidth="95.0" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets left="2.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <TextField fx:id="healthBar" prefHeight="30.0" prefWidth="95.0" GridPane.rowIndex="4" />
-                  <ProgressBar fx:id="newHealthbar" prefHeight="20.0" prefWidth="100.0" progress="1.0" viewOrder="100.0" />
+                  <ProgressBar fx:id="newHealthbar" prefHeight="35.0" prefWidth="98.0" progress="1.0" viewOrder="100.0">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="#ca0707" />
+                           </light>
+                        </Lighting>
+                     </effect></ProgressBar>
+                  <ProgressBar fx:id="healthBar" prefHeight="35.0" prefWidth="99.0" progress="1.0" GridPane.rowIndex="3">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></ProgressBar>
                </children>
                <effect>
                   <Glow level="1.0" />
