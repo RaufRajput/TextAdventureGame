@@ -1,6 +1,7 @@
 package se.iths.teamsmurf;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +9,8 @@ import java.util.List;
 // https://examples.javacodegeeks.com/singleton-class-in-java/ ref
 public class Model {
     private static Model instance = null;
-    private SimpleDoubleProperty playerHealth = new  SimpleDoubleProperty();
-    private SimpleDoubleProperty monsterHealth = new  SimpleDoubleProperty();
+    private SimpleIntegerProperty playerHealth = new  SimpleIntegerProperty();
+    private SimpleIntegerProperty monsterHealth = new  SimpleIntegerProperty();
     private List<Monster> monsterList =new ArrayList<>();
     private List<String> monsterAppearneceList = new ArrayList<>();
     private List<String> sceneList = new ArrayList<>();
@@ -27,16 +28,16 @@ public class Model {
         }
         return instance;
     }
-    public SimpleDoubleProperty playerHealthProperty(){
+    public SimpleIntegerProperty playerHealthProperty(){
         return playerHealth;
     }
-    public SimpleDoubleProperty monsterHealthProperty(){
+    public SimpleIntegerProperty monsterHealthProperty(){
         return monsterHealth;
     }
-    public void setMonsterHealth(double monsterHealth) {
+    public void setMonsterHealth(int monsterHealth) {
         this.monsterHealth.set(monsterHealth);
     }
-    public void setPlayerHealth(double playerHealth) {
+    public void setPlayerHealth(int playerHealth) {
         this.playerHealth.set(playerHealth);
     }
 
