@@ -78,57 +78,6 @@ public class Game implements Fight {
     }
 
     @Override
-    public void fight(boolean isFighting) {
-    }
-
-    /*
-        public void duel() {
-            // random damage generator for player
-            int playerDamage = getRandomNumberInRange(0, 7);
-
-            // random damage generator for monster
-            int monsterDamage = getRandomNumberInRange(0, 7);
-
-            // setting buttons visibility to true or false
-            firstButton.setVisible(false);
-            thirdButton.setVisible(false);
-            secondButton.setVisible(true);
-            secondButton.setText("Punch");
-
-            // changing text on text window
-            textArea.setText(
-                    // player attack
-                    "You gave dat modfoka a nice uppercut " + playerDamage +
-                    " in damage!!!!" + currentMonster.getMonsterHealth() +
-                    " Remaining Health /n/n" +
-                    // monster attack
-                    "The " + currentMonster.getMonsterName() +
-                    " hit you back!, you received " + monsterDamage + " in damage.");
-
-            //  Decrease Hp player
-            player.setHealth(player.getHealth() - monsterDamage);
-            //  Decrease Hp monster
-            currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
-
-
-            System.out.println(currentMonster.getMonsterHealth() + "monster hp");
-            System.out.println(player.getHealth() + " your hp");
-
-            // Checking if monster or player is dead and disabling all buttons
-            if (player.getHealth() <= 0 && currentMonster.getMonsterHealth() <= 0) {
-                firstButton.setVisible(false);
-                secondButton.setVisible(false);
-                thirdButton.setVisible(false);
-                secondButton.setVisible(false);
-                if (player.getHealth() <= 0){
-                    textArea.setText("You died.. RIP");
-                }else if (currentMonster.getMonsterHealth() <= 0){
-                    textArea.setText("Victory, you defeated the beast!");
-                }
-            }
-        }
-    */
-    @Override
     public void attack() {
 
     // random damage generator for player
@@ -176,9 +125,11 @@ public class Game implements Fight {
 
     //  Decrease Hp player
         player.setHealth(player.getHealth() - monsterDamage);
+        model.setPlayerHealth(player.getHealth() - monsterDamage);
 
     //  Decrease Hp monster
         currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
+        model.setMonsterHealth(currentMonster.getMonsterHealth() - playerDamage);
 
     }
 
