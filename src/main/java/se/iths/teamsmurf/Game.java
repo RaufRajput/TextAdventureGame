@@ -70,6 +70,7 @@ public class Game implements Fight {
     public void attack(int a) {
         textArea.setText("You choose to attack the monster!");
 
+
     }
 
     @Override
@@ -79,7 +80,27 @@ public class Game implements Fight {
 
     public void runAndHide(){
         textArea.setText("You choose to run and hide!");
+        thirdButton.setVisible(false);
+        firstButton.setText("");
+        if(randomDouble() <=0.8){
+            textArea.setText("You failed to hide");
 
+            //endTextMethodAfterRun();
+        }
+        else {
+            textArea.setText("You managed to hide!");
+
+        }
+
+
+
+
+
+    }
+
+    private double randomDouble() {
+        Random rd = new Random();
+        return rd.nextDouble();
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
@@ -114,10 +135,6 @@ public class Game implements Fight {
                 break;
             case "ATTACK!":
                 attack(0);
-                break;
-            case "Run and hide":
-                textArea.setText("Hej hej");
-                thirdButton.setText("Run and hide!");
                 break;
         }
 
