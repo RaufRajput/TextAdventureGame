@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
@@ -79,6 +80,8 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Text>
+                  <TextField fx:id="enemyHealthBar" GridPane.rowIndex="1" />
+                  <TextField fx:id="HealthBar" GridPane.rowIndex="4" />
                </children>
                <effect>
                   <Glow level="1.0" />
