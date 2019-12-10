@@ -103,27 +103,6 @@ public class Game implements Fight {
                 break;
         }
 
-/*
-        else if(firstButton.getText().equals("Continue")){
-            textArea.setText("Welcome to Smurfville. " +
-                    "\nThis is a peaceful village where you live with thousands of other smurfs. " +
-                    "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
-                    "\nYou are the chosen one to protect your village when that occurs.");
-            firstButton.setText("Enter Smurfville");
-            }
-
-<<<<<<< HEAD
-        else if (firstButton.getText().equals("ATTACK!")){
-            int a = 1; //vet ej vilken int jag ska skicka in?
-            attack(a);
-            }
-=======
-        else if(firstButton.getText().equals("Enter Smurfville")){
-            textArea.setText(model.getScene(0));
-            }
-
- */
-
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
@@ -150,8 +129,5 @@ public class Game implements Fight {
         textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
-
-
-
     }
 }
