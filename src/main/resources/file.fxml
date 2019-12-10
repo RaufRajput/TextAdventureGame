@@ -19,10 +19,11 @@
 <BorderPane maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.teamsmurf.Game">
    <top>
 
-      <ImageView fx:id="loggoImage" fitHeight="120.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <ImageView fx:id="loggoImage" fitHeight="120.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
             <Image url="https://imgur.com/rMghdoY.png" />
-         </image></ImageView>
+         </image>
+      </ImageView>
    </top>
    <bottom>
       <GridPane prefHeight="170.0" prefWidth="800.0" BorderPane.alignment="CENTER">
@@ -115,7 +116,7 @@
    <center>
       <AnchorPane prefHeight="320.0" prefWidth="570.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="textArea" layoutX="-3.0" prefHeight="309.0" prefWidth="604.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+            <TextArea fx:id="textArea" layoutX="-3.0" prefHeight="309.0" prefWidth="604.0" wrapText="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="24.0" />
                </font></TextArea>
