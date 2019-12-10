@@ -115,6 +115,10 @@ public class Game implements Fight {
             case "ATTACK!":
                 attack(0);
                 break;
+            case "Good Bye":
+                if (firstButton.getText().equals("Good Bye")) {
+                    stage.close(); }
+                break;
         }
 
     }
@@ -130,11 +134,13 @@ public class Game implements Fight {
             thirdButton.setVisible(false);
             firstButton.setText("Continue");
         }
-
         else if (thirdButton.getText().equals("Run and hide!")){
             runAndHide();
         }
-
+        else if (thirdButton.getText().equals("Try Again")) {
+            stage.close();
+            Main.launch();
+        }
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
@@ -156,4 +162,21 @@ public class Game implements Fight {
         return r.nextInt((max - min) + 1) + min;
     }
 
+    public void endTextPlayerDeadMethod(){
+        textArea.setText("The honor is yours! You fought and fell with a dignity. R.I.P.");
+        firstButton.setText("Good Bye");
+        thirdButton.setText("Try Again");
+    }
+
+    public void endTextMethodAfterRun(){
+        textArea.setText("You have betrayed your fellows. The monster is still alive.");
+        firstButton.setText("Good Bye");
+        thirdButton.setText("Try Again");
+    }
+
+    public void endTextWinnerMethod(){
+        textArea.setText("Congratulations! You are the hero!");
+        firstButton.setText("Good Bye");
+        thirdButton.setText("Try Again");
+    }
 }
