@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.ProgressBar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
@@ -86,6 +87,7 @@
                      </GridPane.margin>
                   </TextField>
                   <TextField fx:id="healthBar" prefHeight="30.0" prefWidth="95.0" GridPane.rowIndex="4" />
+                  <ProgressBar fx:id="newHealthbar" prefHeight="20.0" prefWidth="100.0" progress="1.0" viewOrder="100.0" />
                </children>
                <effect>
                   <Glow level="1.0" />
