@@ -29,6 +29,7 @@ public class Main extends Application {
         primStage = primaryStage;
         primaryStage.setTitle("Monster");
         primaryStage.setScene(new Scene (root));
+        primaryStage.setResizable(false);
         controller.init (primaryStage.getScene ());
         primaryStage.show();
     }
