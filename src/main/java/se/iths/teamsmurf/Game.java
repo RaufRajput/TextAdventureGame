@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
@@ -21,6 +22,10 @@ public class Game implements Fight {
     Button fourthButton;
     @FXML
     TextArea textArea;
+    @FXML
+    ProgressBar healthBar;
+    @FXML
+    ProgressBar newHealthbar;
 
     private static Game instance = null;
     private Model model;
@@ -56,6 +61,9 @@ public class Game implements Fight {
         //Next line replaces onAction="#button1Action" in fxml file
        // firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
         //Will run after all fields are set and view is ready
+        newHealthbar.progressProperty().bind(model.monsterHealthProperty().multiply(0.01));
+        healthBar.progressProperty().bind(model.playerHealthProperty().multiply(0.01));
+        model.setPlayerHealth(100);
     }
 
     public void init(Scene scene) {
