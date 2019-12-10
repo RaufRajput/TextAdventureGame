@@ -94,6 +94,21 @@ public class Game implements Fight {
                 firstButton.setText("Enter Smurfville");
                 break;
         }
+
+/*
+        else if(firstButton.getText().equals("Continue")){
+            textArea.setText("Welcome to Smurfville. " +
+                    "\nThis is a peaceful village where you live with thousands of other smurfs. " +
+                    "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
+                    "\nYou are the chosen one to protect your village when that occurs.");
+            firstButton.setText("Enter Smurfville");
+            }
+
+        else if(firstButton.getText().equals("Enter Smurfville")){
+            textArea.setText(model.getScene(0));
+            }
+
+ */
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
