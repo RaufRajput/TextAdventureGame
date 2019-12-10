@@ -28,6 +28,7 @@ public class Model {
         sceneList.add("Sunny Saturday! You are right in the middle of annual flower festival by the lake. Some screams are reaching you from the crowd..");
         sceneList.add("You are in the smurvMall to pick up some groceries when you hear the ceiling crashing..");
         sceneList.add("You are at the Christmas party with your fellows. Time for dessert. But: it´s missing! Christmas tree suddenly falls down..");
+
    }
     public static Model getInstance() {
         // If there is no instance available, create new one (i.e. lazy initialization).
