@@ -118,13 +118,32 @@ public class Game implements Fight {
     @Override
     public void attack() {
 
-        player.setHealth(20);
-
     // random damage generator for player
     int playerDamage = getRandomNumberInRange(0, 7);
 
     // random damage generator for monster
     int monsterDamage = getRandomNumberInRange(0, 7);
+
+    // Player attack frases
+    String PlayerAttackFrase;
+    if (playerDamage == 0){
+        PlayerAttackFrase = "You MISSED and punched a tree for ";
+    }else if (playerDamage < 4 && playerDamage > 0){
+        PlayerAttackFrase = "You spanked the monster and did ";
+    }else {
+        PlayerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
+    }
+
+        // Monster attack frases
+        String MonsterAttackFrase;
+        if (monsterDamage == 0){
+            MonsterAttackFrase = " tried to punch you back and missed, you received ";
+        }else if (monsterDamage < 4 && monsterDamage > 0){
+            MonsterAttackFrase = " punched you in your stomach, you received ";
+        }else {
+            MonsterAttackFrase = " punched you in the HEAD, you received ";
+        }
+
 
     // setting buttons visibility to true or false
         firstButton.setVisible(false);
@@ -135,22 +154,18 @@ public class Game implements Fight {
     // changing text on text window
         textArea.setText(
                 // player attack
-                "You gave dat modafoka a nice uppercut! " + playerDamage +
-            " in damage!!!! " + "The monster Health is " + (currentMonster.getMonsterHealth() - playerDamage) +
+                PlayerAttackFrase + playerDamage +
+            " damage!!!! " + "The " + currentMonster.getMonsterName() + " Health is " + (currentMonster.getMonsterHealth() - playerDamage) +
             "\n\n" +
             // monster attack
             "The " + currentMonster.getMonsterName() +
-            " hit you back!, you received "  + monsterDamage + " in damage.");
+             MonsterAttackFrase  + monsterDamage + " in damage. " + "Your current health is " + (player.getHealth() - monsterDamage));
 
     //  Decrease Hp player
         player.setHealth(player.getHealth() - monsterDamage);
 
     //  Decrease Hp monster
         currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
-
-
-        System.out.println(currentMonster.getMonsterHealth() + "monster hp");
-        System.out.println(player.getHealth() + " your hp");
 
     }
 
