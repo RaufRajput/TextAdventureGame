@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.util.Random;
+
 public class Game implements Fight {
 
     @FXML
@@ -101,6 +103,12 @@ public class Game implements Fight {
                         "\nYou are the chosen one to protect your village when that occurs.");
                 firstButton.setText("Enter Smurfville");
                 break;
+            case "Enter Smurfville":
+                textArea.setText(model.getScene(getRandomNumberInRange( 0,3)));
+                firstButton.setText("Show More");
+                break;
+
+
         }
 
     }
@@ -130,4 +138,15 @@ public class Game implements Fight {
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
     }
+
+    private static int getRandomNumberInRange(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
 }
