@@ -60,7 +60,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ProgressBar prefHeight="72.0" prefWidth="98.0" progress="1.0">
+                  <ProgressBar fx:id="enemyHealthBar" prefHeight="72.0" prefWidth="98.0" progress="1.0">
                      <effect>
                         <Lighting>
                            <bumpInput>
@@ -72,7 +72,7 @@
                         </Lighting>
                      </effect>
                   </ProgressBar>
-                  <ProgressBar prefHeight="72.0" prefWidth="98.0" progress="1.0" GridPane.rowIndex="1" />
+                  <ProgressBar fx:id="healthBar" prefHeight="72.0" prefWidth="98.0" progress="1.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children></VBox>
