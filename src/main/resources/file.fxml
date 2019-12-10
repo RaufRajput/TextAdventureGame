@@ -68,10 +68,10 @@
                <children>
                   <Text fill="#da0707" fontSmoothingType="LCD" stroke="#1e1d1d" strokeType="OUTSIDE" text="Monsters Health" textAlignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets bottom="10.0" left="1.0" top="10.0" />
+                        <Insets bottom="10.0" left="2.0" top="10.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="System Bold Italic" size="13.0" />
+                        <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </Text>
                   <Text fill="#0fe80c" fontSmoothingType="LCD" stroke="#101110" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Your Health" textAlignment="CENTER" GridPane.rowIndex="4">
