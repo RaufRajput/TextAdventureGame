@@ -60,7 +60,7 @@
                   <RowConstraints maxHeight="74.19998779296876" minHeight="7.799993896484381" prefHeight="34.00000000000001" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="147.00000610351563" minHeight="10.0" prefHeight="52.400000000000006" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="180.79999389648438" minHeight="10.0" prefHeight="120.60001220703126" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="32.199981689453125" minHeight="7.800024414062477" prefHeight="29.79998779296875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="32.199981689453125" minHeight="7.800024414062477" prefHeight="34.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="50.99997558593748" minHeight="10.0" prefHeight="50.99997558593748" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -80,11 +80,12 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField maxHeight="30.0" maxWidth="95.0" GridPane.rowIndex="1">
+                  <TextField fx:id="enemyHealthBar" maxHeight="30.0" maxWidth="95.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="2.0" />
                      </GridPane.margin>
                   </TextField>
+                  <TextField fx:id="healthBar" prefHeight="30.0" prefWidth="95.0" GridPane.rowIndex="4" />
                </children>
                <effect>
                   <Glow level="1.0" />
