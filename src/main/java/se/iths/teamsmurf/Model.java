@@ -16,10 +16,6 @@ public class Model {
     private List<String> sceneList = new ArrayList<>();
 
     private Model(){
-        monsterList.add(new Monster(30,Race.ELF));
-        monsterList.add(new Monster(60,Race.TROLL));
-        monsterList.add(new Monster(80,Race.OGRE));
-        monsterList.add(new Monster(100,Race.HUMAN));
         monsterAppearanceList.add(" is jumping towards you!");
         monsterAppearanceList.add(" is popping up in front of you!");
         monsterAppearanceList.add(" is threatening running towards you!");
@@ -28,8 +24,16 @@ public class Model {
         sceneList.add("Sunny Saturday! You are right in the middle of annual flower festival by the lake. Some screams are reaching you from the crowd..");
         sceneList.add("You are in the smurvMall to pick up some groceries when you hear the ceiling crashing..");
         sceneList.add("You are at the Christmas party with your fellows. Time for dessert. But: it´s missing! Christmas tree suddenly falls down..");
-
+        generateMonsters();
    }
+
+    public void generateMonsters() {
+        monsterList.add(new Monster(30,Race.ELF));
+        monsterList.add(new Monster(60,Race.TROLL));
+        monsterList.add(new Monster(80,Race.OGRE));
+        monsterList.add(new Monster(100,Race.HUMAN));
+    }
+
     public static Model getInstance() {
         // If there is no instance available, create new one (i.e. lazy initialization).
         if (instance == null) {
@@ -55,6 +59,13 @@ public class Model {
     }
     public String getMonsterAppearance(int i){
         return monsterAppearanceList.get(i);
+    }
+    public void rmMonster(Monster defedmonster){
+        for (int i = 0; i < monsterList.size() ; i++) {
+         if (defedmonster.getMonsterName().equals(monsterList.get(i).getMonsterName())){
+            monsterList.remove(i);
+         }
+        }
     }
     public String getScene(int i){
         return sceneList.get(i);

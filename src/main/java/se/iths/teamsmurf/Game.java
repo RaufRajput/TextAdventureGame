@@ -2,10 +2,13 @@ package se.iths.teamsmurf;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -22,6 +25,12 @@ public class Game implements Fight {
     Button fourthButton;
     @FXML
     TextArea textArea;
+    @FXML
+    ProgressBar healthBar;
+    @FXML
+    ProgressBar newHealthbar;
+    @FXML
+    Text monsterText;
 
     private static Game instance = null;
     private Model model;
@@ -58,8 +67,12 @@ public class Game implements Fight {
         //Next line replaces onAction="#button1Action" in fxml file
         // firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
         //Will run after all fields are set and view is ready
+        newHealthbar.progressProperty().bind(model.monsterHealthProperty().multiply(0.01));
+        healthBar.progressProperty().bind(model.playerHealthProperty().multiply(0.01));
+        model.setMonsterHealth(0);
+        newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
+        monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
     }
-
     public void init(Scene scene) {
 
     }
@@ -176,7 +189,25 @@ public class Game implements Fight {
 
     public void runAndHide() {
         textArea.setText("You choose to run and hide!");
+        thirdButton.setVisible(false);
+        firstButton.setText("Next");
 
+    }
+
+    public void runAndHide2(){
+        if(randomDouble() >=0.8){
+            textArea.setText("You failed to hide");
+            endTextMethodAfterRun();
+        }
+        else {
+            textArea.setText("You managed to hide!");
+            firstButton.setText("Enter Smurfville");
+        }
+    }
+
+    private double randomDouble() {
+        Random rd = new Random();
+        return rd.nextDouble();
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
@@ -202,14 +233,24 @@ public class Game implements Fight {
                 textArea.setText(model.getScene(getRandomNumberInRange(0, 3)));
                 firstButton.setText("Show More");
                 break;
-            case "Show More":
-                currentMonster = model.getMonster(getRandomNumberInRange(0, 3));
-                textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0, 3)));
+            case "Show More" :
+                currentMonster = model.getMonster(getRandomNumberInRange(0,3));
+                model.setMonsterHealth(currentMonster.getHealth());
+                textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0,3)));
+
                 firstButton.setText("ATTACK!");
+                thirdButton.setVisible(true);
                 thirdButton.setText("Run and hide!");
                 break;
             case "ATTACK!":
                 attack();
+                break;
+            case "Good Bye":
+                if (firstButton.getText().equals("Good Bye")) {
+                    stage.close(); }
+                break;
+            case "Next":
+                runAndHide2();
                 break;
         }
 
@@ -243,10 +284,16 @@ public class Game implements Fight {
             textArea.setText("You have chosen Boy Smurf");
             thirdButton.setVisible(false);
             firstButton.setText("Continue");
-        } else if (thirdButton.getText().equals("Run and hide!")) {
+        }
+        else if (thirdButton.getText().equals("Run and hide!")){
             runAndHide();
         }
-
+        else if (thirdButton.getText().equals("Try Again")) {
+        model.generateMonsters();
+        thirdButton.setVisible(false);
+        firstButton.setText("start");
+        textArea.setText("Click start to play Monster Punch!!!!!!!!!");
+        }
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
@@ -256,6 +303,7 @@ public class Game implements Fight {
         textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
+        model.setPlayerHealth(100);
     }
 
     private static int getRandomNumberInRange(int min, int max) {
@@ -268,4 +316,23 @@ public class Game implements Fight {
         return r.nextInt((max - min) + 1) + min;
     }
 
+    public void endTextPlayerDeadMethod(){
+        textArea.setText("The honor is yours! You fought and fell with a dignity. R.I.P.");
+        firstButton.setText("Good Bye");
+        thirdButton.setText("Try Again");
+    }
+
+    public void endTextMethodAfterRun(){
+        model.setPlayerHealth(0);
+        textArea.setText("You have betrayed your fellows. The monster is still alive.");
+        thirdButton.setVisible(true);
+        firstButton.setText("Good Bye");
+        thirdButton.setText("Try Again");
+    }
+
+    public void endTextWinnerMethod(){
+        textArea.setText("Congratulations! You are the hero!");
+        firstButton.setText("Good Bye");
+        thirdButton.setText("Try Again");
+    }
 }
