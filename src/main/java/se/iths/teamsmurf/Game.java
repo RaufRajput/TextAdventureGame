@@ -93,7 +93,7 @@ public class Game implements Fight {
         }
         else {
             textArea.setText("You managed to hide!");
-
+            firstButton.setText("Enter Smurfville");
         }
     }
 
