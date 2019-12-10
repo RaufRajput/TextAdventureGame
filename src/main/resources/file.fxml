@@ -75,17 +75,17 @@
                      </effect>
                   </ProgressBar>
                   <ProgressBar fx:id="healthBar" prefHeight="72.0" prefWidth="98.0" progress="1.0" GridPane.rowIndex="1" />
-                  <Text fontSmoothingType="LCD" stroke="#cd0d03" strokeType="OUTSIDE" text="Monster Health" textAlignment="CENTER">
+                  <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Monster Health">
                      <GridPane.margin>
-                        <Insets left="5.0" top="90.0" />
+                        <Insets left="5.0" top="100.0" />
                      </GridPane.margin>
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fontSmoothingType="LCD" stroke="#1edd10" strokeType="OUTSIDE" text="Your Health" GridPane.rowIndex="1">
+                  <Text fontSmoothingType="LCD" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Health" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets left="17.0" top="90.0" />
+                        <Insets left="17.0" top="100.0" />
                      </GridPane.margin>
                      <font>
                         <Font name="System Bold" size="12.0" />
