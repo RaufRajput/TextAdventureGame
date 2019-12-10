@@ -161,8 +161,10 @@ public class Game implements Fight {
             runAndHide();
         }
         else if (thirdButton.getText().equals("Try Again")) {
-            stage.close();
-            Main.launch();
+        model.generateMonsters();
+        thirdButton.setVisible(false);
+        firstButton.setText("start");
+        textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         }
     }
 
