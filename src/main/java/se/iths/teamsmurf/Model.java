@@ -60,9 +60,9 @@ public class Model {
     public String getMonsterAppearance(int i){
         return monsterAppearanceList.get(i);
     }
-    public void rmMonster(Monster defedmonster){
+    public void removeMonsterfromlist(Monster defeatedmonster){
         for (int i = 0; i < monsterList.size() ; i++) {
-         if (defedmonster.getMonsterName().equals(monsterList.get(i).getMonsterName())){
+         if (defeatedmonster.getMonsterName().equals(monsterList.get(i).getMonsterName())){
             monsterList.remove(i);
          }
         }

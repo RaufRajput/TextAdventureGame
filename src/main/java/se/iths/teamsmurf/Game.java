@@ -1,8 +1,7 @@
 package se.iths.teamsmurf;
 
-import javafx.application.Platform;
+
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -64,9 +63,6 @@ public class Game implements Fight {
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
-        //Next line replaces onAction="#button1Action" in fxml file
-        // firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
-        //Will run after all fields are set and view is ready
         newHealthbar.progressProperty().bind(model.monsterHealthProperty().multiply(0.01));
         healthBar.progressProperty().bind(model.playerHealthProperty().multiply(0.01));
         model.setMonsterHealth(0);
