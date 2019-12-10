@@ -61,16 +61,24 @@ public class Game implements Fight {
     }
     @Override
     public void fight(boolean isFighting) {
-
+        textArea.setText("What do you want to do?");
+        firstButton.setText("ATTACK!");
+        thirdButton.setText("Run and hide!");
     }
 
     @Override
     public void attack(int a) {
+        textArea.setText("You choose to attack the monster!");
 
     }
 
     @Override
     public void defense(int a) {
+
+    }
+
+    public void runAndHide(){
+        textArea.setText("You choose to run and hide!");
 
     }
 
@@ -93,6 +101,11 @@ public class Game implements Fight {
                     "\nYou are the chosen one to protect your village when that occurs.");
             firstButton.setText("Enter Smurfville");
             }
+
+        else if (firstButton.getText().equals("ATTACK!")){
+            int a = 1; //vet ej vilken int jag ska skicka in?
+            attack(a);
+            }
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
@@ -105,6 +118,10 @@ public class Game implements Fight {
             textArea.setText("You have chosen Boy Smurf");
             thirdButton.setVisible(false);
             firstButton.setText("Continue");
+        }
+
+        else if (thirdButton.getText().equals("Run and hide!")){
+            runAndHide();
         }
     }
 
