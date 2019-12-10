@@ -4,9 +4,8 @@ public class Player {
     private int health;
     private Gender gender;
 
-    public Player(int health, Gender gender) {
+    public Player(int health) {
         this.health = health;
-        this.gender = gender;
     }
 
     public int getHealth() {

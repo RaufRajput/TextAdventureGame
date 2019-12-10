@@ -48,7 +48,7 @@ public class Game implements Fight {
     public void initialize() {
 
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
-        player = new Player(100,Gender.MALE);
+        player = new Player(100);
         firstButton.setText("start");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
