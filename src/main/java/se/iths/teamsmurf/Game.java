@@ -46,7 +46,7 @@ public class Game implements Fight {
     public void initialize() {
 
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
-        player = new Player();
+        player = new Player(100,Gender.MALE);
         firstButton.setText("start");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
@@ -83,17 +83,27 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
-            if(firstButton.getText().equals("start")) {
+        switch (firstButton.getText()) {
+            case "start":
                 thirdButton.setVisible(true);
                 createNewPlayer();
-            }
-        else if(firstButton.getText().equals("Lady Smurf")){
-            player.setGender(Gender.FEMALE);
-            textArea.setText("You have chosen Lady Smurf");
-            thirdButton.setVisible(false);
-            firstButton.setText("Continue");
+                break;
+            case "Lady Smurf":
+                player.setGender(Gender.FEMALE);
+                textArea.setText("You have chosen Lady Smurf");
+                thirdButton.setVisible(false);
+                firstButton.setText("Continue");
+                break;
+            case "Continue":
+                textArea.setText("Welcome to Smurfville. " +
+                        "\nThis is a peaceful village where you live with thousands of other smurfs. " +
+                        "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
+                        "\nYou are the chosen one to protect your village when that occurs.");
+                firstButton.setText("Enter Smurfville");
+                break;
         }
 
+/*
         else if(firstButton.getText().equals("Continue")){
             textArea.setText("Welcome to Smurfville. " +
                     "\nThis is a peaceful village where you live with thousands of other smurfs. " +
@@ -102,10 +112,18 @@ public class Game implements Fight {
             firstButton.setText("Enter Smurfville");
             }
 
+<<<<<<< HEAD
         else if (firstButton.getText().equals("ATTACK!")){
             int a = 1; //vet ej vilken int jag ska skicka in?
             attack(a);
             }
+=======
+        else if(firstButton.getText().equals("Enter Smurfville")){
+            textArea.setText(model.getScene(0));
+            }
+
+ */
+
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
