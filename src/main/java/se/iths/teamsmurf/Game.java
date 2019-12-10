@@ -212,15 +212,16 @@ public class Game implements Fight {
         if (player.getHealth() <= 0){
             System.out.println("player dead");
             textArea.setText("You died.. RIP");
-            firstButton.setVisible(false);
+            firstButton.setVisible(true);
             secondButton.setVisible(false);
             thirdButton.setVisible(false);
             fourthButton.setVisible(false);
+            firstButton.setText("Good Bye");
         }else if (currentMonster.getMonsterHealth() <= 0){
             System.out.println("monster is dead");
             textArea.setText("Congratulations!, you have slain the " + currentMonster.getMonsterName());
             firstButton.setVisible(true);
-            firstButton.setText("Continue adventure");
+            firstButton.setText("Enter Smurfville");
             secondButton.setVisible(false);
             thirdButton.setVisible(false);
             fourthButton.setVisible(false);
