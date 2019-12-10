@@ -60,13 +60,6 @@ public class Model {
     public String getMonsterAppearance(int i){
         return monsterAppearanceList.get(i);
     }
-    public void rmMonster(Monster defedmonster){
-        for (int i = 0; i < monsterList.size() ; i++) {
-         if (defedmonster.getMonsterName().equals(monsterList.get(i).getMonsterName())){
-            monsterList.remove(i);
-         }
-        }
-    }
     public String getScene(int i){
         return sceneList.get(i);
     }

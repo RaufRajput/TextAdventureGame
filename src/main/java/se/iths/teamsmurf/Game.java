@@ -1,14 +1,11 @@
 package se.iths.teamsmurf;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -29,8 +26,6 @@ public class Game implements Fight {
     ProgressBar healthBar;
     @FXML
     ProgressBar newHealthbar;
-    @FXML
-    Text monsterText;
 
     private static Game instance = null;
     private Model model;
@@ -68,10 +63,9 @@ public class Game implements Fight {
         //Will run after all fields are set and view is ready
         newHealthbar.progressProperty().bind(model.monsterHealthProperty().multiply(0.01));
         healthBar.progressProperty().bind(model.playerHealthProperty().multiply(0.01));
-        model.setMonsterHealth(0);
-        newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
-        monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
+        model.setPlayerHealth(100);
     }
+
     public void init(Scene scene) {
 
     }
@@ -83,24 +77,6 @@ public class Game implements Fight {
     @Override
     public void attack(int a) {
         textArea.setText("You choose to attack the monster!");
-
-           Platform.runLater(()-> {
-               try {
-                   Thread.sleep(200);
-                   model.setMonsterHealth(model.monsterHealthProperty().get()-a);
-                   textArea.setText("You attacked the "+currentMonster.getMonsterName()+" and gave "+a+" in damage.");
-                   if (model.monsterHealthProperty().get() <=0){
-                       textArea.setText("You vanquished the "+currentMonster.getMonsterName());
-                       firstButton.setText("Enter Smurfville");
-                       model.rmMonster(currentMonster);
-                       thirdButton.setVisible(false);
-                   }
-               } catch (InterruptedException e) {
-                 //  e.printStackTrace();
-               }
-            });
-
-
 
 
     }
@@ -158,14 +134,13 @@ public class Game implements Fight {
                 break;
             case "Show More" :
                 currentMonster = model.getMonster(getRandomNumberInRange(0,3));
-                model.setMonsterHealth(currentMonster.getHealth());
                 textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0,3)));
                 firstButton.setText("ATTACK!");
                 thirdButton.setVisible(true);
                 thirdButton.setText("Run and hide!");
                 break;
             case "ATTACK!":
-                attack(getRandomNumberInRange(3,currentMonster.getHealth()/3));
+                attack(0);
                 break;
             case "Good Bye":
                 if (firstButton.getText().equals("Good Bye")) {
@@ -207,7 +182,6 @@ public class Game implements Fight {
         textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
-        model.setPlayerHealth(100);
     }
 
     private static int getRandomNumberInRange(int min, int max) {
@@ -227,7 +201,6 @@ public class Game implements Fight {
     }
 
     public void endTextMethodAfterRun(){
-        model.setPlayerHealth(0);
         textArea.setText("You have betrayed your fellows. The monster is still alive.");
         thirdButton.setVisible(true);
         firstButton.setText("Good Bye");
