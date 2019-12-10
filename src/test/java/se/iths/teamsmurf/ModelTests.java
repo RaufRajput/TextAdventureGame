@@ -1,6 +1,8 @@
 package se.iths.teamsmurf;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import javafx.beans.property.SimpleIntegerProperty;
 import org.junit.jupiter.api.*;
 
 import javafx.beans.property.SimpleDoubleProperty;
@@ -12,7 +14,7 @@ import se.iths.teamsmurf.Monster;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ModelTests {
     private Model model;
-    private SimpleDoubleProperty health;
+    private SimpleIntegerProperty health;
 
     @BeforeAll
     void setModel() {
