@@ -114,6 +114,10 @@ public class Game implements Fight {
             case "ATTACK!":
                 attack(0);
                 break;
+            case "Run and hide":
+                textArea.setText("Hej hej");
+                thirdButton.setText("Run and hide!");
+                break;
         }
 
     }
