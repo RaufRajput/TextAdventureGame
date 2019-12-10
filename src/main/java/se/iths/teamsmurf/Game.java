@@ -109,6 +109,7 @@ public class Game implements Fight {
                 currentMonster = model.getMonster(getRandomNumberInRange(0,3));
                 textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0,3)));
                 firstButton.setText("ATTACK!");
+                thirdButton.setVisible(true);
                 thirdButton.setText("Run and hide!");
                 break;
             case "ATTACK!":
