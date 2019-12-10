@@ -75,24 +75,25 @@ public class Game implements Fight {
     }
 
     public void firstButtonAction(ActionEvent actionEvent) {
-            if(firstButton.getText().equals("start")) {
+        switch (firstButton.getText()) {
+            case "start":
                 thirdButton.setVisible(true);
                 createNewPlayer();
-            }
-        else if(firstButton.getText().equals("Lady Smurf")){
-            player.setGender(Gender.FEMALE);
-            textArea.setText("You have chosen Lady Smurf");
-            thirdButton.setVisible(false);
-            firstButton.setText("Continue");
+                break;
+            case "Lady Smurf":
+                player.setGender(Gender.FEMALE);
+                textArea.setText("You have chosen Lady Smurf");
+                thirdButton.setVisible(false);
+                firstButton.setText("Continue");
+                break;
+            case "Continue":
+                textArea.setText("Welcome to Smurfville. " +
+                        "\nThis is a peaceful village where you live with thousands of other smurfs. " +
+                        "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
+                        "\nYou are the chosen one to protect your village when that occurs.");
+                firstButton.setText("Enter Smurfville");
+                break;
         }
-
-        else if(firstButton.getText().equals("Continue")){
-            textArea.setText("Welcome to Smurfville. " +
-                    "\nThis is a peaceful village where you live with thousands of other smurfs. " +
-                    "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
-                    "\nYou are the chosen one to protect your village when that occurs.");
-            firstButton.setText("Enter Smurfville");
-            }
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
