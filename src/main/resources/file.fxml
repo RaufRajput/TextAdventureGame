@@ -66,7 +66,7 @@
                   <RowConstraints maxHeight="50.99997558593748" minHeight="10.0" prefHeight="50.99997558593748" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fill="#da0707" fontSmoothingType="LCD" stroke="#1e1d1d" strokeType="OUTSIDE" text="Monsters Health" textAlignment="CENTER" GridPane.rowIndex="1">
+                  <Text fx:id="monsterText" fill="#da0707" fontSmoothingType="LCD" stroke="#1e1d1d" strokeType="OUTSIDE" text="Monsters Health" textAlignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="2.0" top="10.0" />
                      </GridPane.margin>
