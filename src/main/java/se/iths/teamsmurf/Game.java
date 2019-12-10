@@ -93,6 +93,10 @@ public class Game implements Fight {
                     "\nYou are the chosen one to protect your village when that occurs.");
             firstButton.setText("Enter Smurfville");
             }
+
+        else if(firstButton.getText().equals("Enter Smurfville")){
+            textArea.setText(model.getScene(0));
+            }
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
