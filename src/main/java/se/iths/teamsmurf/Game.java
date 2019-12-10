@@ -81,21 +81,20 @@ public class Game implements Fight {
     public void runAndHide(){
         textArea.setText("You choose to run and hide!");
         thirdButton.setVisible(false);
-        firstButton.setText("");
+        firstButton.setText("Next");
+
+    }
+
+    public void runAndHide2(){
         if(randomDouble() <=0.8){
             textArea.setText("You failed to hide");
 
-            //endTextMethodAfterRun();
+            endTextMethodAfterRun();
         }
         else {
             textArea.setText("You managed to hide!");
 
         }
-
-
-
-
-
     }
 
     private double randomDouble() {
@@ -139,6 +138,9 @@ public class Game implements Fight {
             case "Good Bye":
                 if (firstButton.getText().equals("Good Bye")) {
                     stage.close(); }
+                break;
+            case "Next":
+                runAndHide2();
                 break;
         }
 
@@ -191,6 +193,7 @@ public class Game implements Fight {
 
     public void endTextMethodAfterRun(){
         textArea.setText("You have betrayed your fellows. The monster is still alive.");
+        thirdButton.setVisible(true);
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
     }
