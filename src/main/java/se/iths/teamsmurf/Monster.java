@@ -25,4 +25,8 @@ public class Monster implements CreatureManager {
     public void Race(Race race) {
         this.race=race;
     }
+
+    public String getMonsterName(){
+        return this.race.name();
+    }
 }

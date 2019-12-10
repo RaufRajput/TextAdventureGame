@@ -63,9 +63,7 @@ public class Game implements Fight {
     }
     @Override
     public void fight(boolean isFighting) {
-        textArea.setText("What do you want to do?");
-        firstButton.setText("ATTACK!");
-        thirdButton.setText("Run and hide!");
+
     }
 
     @Override
@@ -107,8 +105,15 @@ public class Game implements Fight {
                 textArea.setText(model.getScene(getRandomNumberInRange( 0,3)));
                 firstButton.setText("Show More");
                 break;
-
-
+            case "Show more" :
+                currentMonster = model.getMonster(getRandomNumberInRange(0,3));
+                textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0,3)));
+                firstButton.setText("ATTACK!");
+                thirdButton.setText("Run and hide!");
+                break;
+            case "ATTACK!":
+                attack(0);
+                break;
         }
 
     }
@@ -128,6 +133,7 @@ public class Game implements Fight {
         else if (thirdButton.getText().equals("Run and hide!")){
             runAndHide();
         }
+
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
