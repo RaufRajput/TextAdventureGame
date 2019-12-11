@@ -55,6 +55,7 @@ public class Game implements Fight {
     private int notTwice3 = 0;
     private int notTwice4 = 0;
 
+
     //<editor-fold desc="Singelton Constructor">
     private Game(Model model) {
         this.model = model;
@@ -103,68 +104,79 @@ public class Game implements Fight {
     @Override
     public void attack() {
 
-        int random50 = getRandomNumberInRange(0,1);
-        if (player.getHealth() < 25){
-            fourthButton.setVisible(true);
-            fourthButton.setText("Try to run");
-            if (random50 == 0){
-                fourthButton.setVisible(false);
-                textArea.setText("You failed to run away");
+        beAbleToRunLowHp();
+        int playerDamage = getPlayerDamage();
+        int monsterDamage = getMonsterDamage();
+        monsterDamage = getMonsterDamage(monsterDamage);
+        playerDamage = getPlayerDamageWhenExcaliberIsActive(playerDamage);
+        String playerAttackFrase = getString(playerDamage);
+        String MonsterAttackFrase = getMonsterString(monsterDamage);
+        ChangeVisibilityForPunchOnly();
+        DecreasePlayerHealth(monsterDamage);
+        DecreaseMonsterHealth(playerDamage);
+        AttackStageTexts(playerDamage, monsterDamage, playerAttackFrase, MonsterAttackFrase);
+    }
 
-            }else if (random50 == 1){
-                fourthButton.setVisible(true);
-                fourthButton.setText("Try to run away!");
-            }
-        }
-
-        // random damage generator for player
-        int playerDamage = getRandomNumberInRange(0, 7);
-
-
+    private int getMonsterDamage() {
         // random damage generator for monster
-        int monsterDamage = 0;
+        return 0;
+    }
 
-        if (currentMonster.getRace() == Race.TROLL) {
-            monsterDamage = getRandomNumberInRange(0, 5);
+    private void AttackStageTexts(int playerDamage, int monsterDamage, String playerAttackFrase, String monsterAttackFrase) {
+        // changing text on text window
+        textArea.setText(
+                // player attack
+                playerAttackFrase + playerDamage +
+                        " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + (currentMonster.getMonsterHealth()) +
+                        "\n\n" +
+                        // monster attack
+                        "The " + currentMonster.getMonsterName() +
+                        monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + (player.getHealth()));
+    }
 
-        } else if (currentMonster.getRace() == Race.ELF) {
-            monsterDamage = getRandomNumberInRange(0, 4);
-
-        } else if (currentMonster.getRace() == Race.NinjaTurtle) {
-            monsterDamage = getRandomNumberInRange(0, 3);
-
-        } else if (currentMonster.getRace() == Race.OGRE) {
-            monsterDamage = getRandomNumberInRange(0, 6);
-        }
-
-
-
+    private int getPlayerDamageWhenExcaliberIsActive(int playerDamage) {
         // item calc
         if (player.Excaliber){
             playerDamage = playerDamage + model.getItemList().get(0).getDamage();
             sword.setOpacity(1.0);
         }
-        if (player.GoldenShield){
-            if (notTwice2 < 1){
-                player.setHealth(player.getHealth() + model.getItemList().get(2).getHealth());
-                notTwice2++;
-            }
-            shield.setOpacity(1.0);
+        return playerDamage;
+    }
+
+    private void ChangeVisibilityForPunchOnly() {
+        // setting buttons visibility to true or false
+        firstButton.setVisible(false);
+        thirdButton.setVisible(false);
+        secondButton.setVisible(true);
+        secondButton.setText("Punch");
+    }
+
+    private void DecreaseMonsterHealth(int playerDamage) {
+        //  Decrease Hp monster
+        currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
+        model.setMonsterHealth(currentMonster.getMonsterHealth());
+    }
+
+    private void DecreasePlayerHealth(int monsterDamage) {
+        //  Decrease Hp player
+        player.setHealth(player.getHealth() - monsterDamage);
+        model.setPlayerHealth(player.getHealth());
+    }
+
+    private String getMonsterString(int monsterDamage) {
+        // Monster attack frases
+        String MonsterAttackFrase;
+        if (monsterDamage == 0) {
+            MonsterAttackFrase = " tried to punch you back and missed, you received ";
+        } else if (monsterDamage < 6 && monsterDamage > 0) {
+            MonsterAttackFrase = " punched you in your stomach, you received ";
+        } else {
+            MonsterAttackFrase = " punched you in the HEAD, you received ";
         }
-        if (player.HolyKnightArmor){
-            if (notTwice3 < 1){
-                player.setHealth(player.getHealth() + model.getItemList().get(3).getHealth());
-                notTwice3++;
-            }
-            armor.setOpacity(1.0);
-        }
-        if (player.HolyKnightBoots){
-            if (notTwice4 < 1){
-                player.setHealth(player.getHealth() + model.getItemList().get(4).getHealth());
-                notTwice4++;
-            }
-            boots.setOpacity(1.0);
-        }
+        return MonsterAttackFrase;
+    }
+
+    private String getString(int playerDamage) {
 
         // Player attack frases
         String playerAttackFrase;
@@ -173,44 +185,51 @@ public class Game implements Fight {
             playerAttackFrase = "You MISSED and punched a tree for ";
         } else if (playerDamage < 4 && playerDamage > 0) {
             playerAttackFrase = "You spanked the monster and did ";
-        } else {
+        } else if (playerDamage > 4 && playerDamage < 10){
+            playerAttackFrase = "You punched him REALY hard for ";
+        }else {
             playerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
         }
+        return playerAttackFrase;
+    }
 
-        // Monster attack frases
-        String MonsterAttackFrase;
-        if (monsterDamage == 0) {
-            MonsterAttackFrase = " tried to punch you back and missed, you received ";
-        } else if (monsterDamage < 4 && monsterDamage > 0) {
-            MonsterAttackFrase = " punched you in your stomach, you received ";
-        } else {
-            MonsterAttackFrase = " punched you in the HEAD, you received ";
+    private int getMonsterDamage(int monsterDamage) {
+        switch (currentMonster.getRace()) {
+            case TROLL:
+                monsterDamage = getRandomNumberInRange(0, 7);
+                break;
+            case ELF:
+                monsterDamage = getRandomNumberInRange(0, 6);
+                break;
+            case NinjaTurtle:
+                monsterDamage = getRandomNumberInRange(0, 5);
+                break;
+            case OGRE:
+                monsterDamage = getRandomNumberInRange(0, 8);
+                break;
         }
+        return monsterDamage;
+    }
 
+    private int getPlayerDamage() {
+        // random damage generator for player
+        return getRandomNumberInRange(0, 8);
+    }
 
-        // setting buttons visibility to true or false
-        firstButton.setVisible(false);
-        thirdButton.setVisible(false);
-        secondButton.setVisible(true);
-        secondButton.setText("Punch");
+    private void beAbleToRunLowHp() {
+        int random50 = getRandomNumberInRange(0, 10);
 
-        //  Decrease Hp player
-        player.setHealth(player.getHealth() - monsterDamage);
-        model.setPlayerHealth(player.getHealth());
-        //  Decrease Hp monster
-        currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
-        model.setMonsterHealth(currentMonster.getMonsterHealth());
+        if (player.getHealth() <= 25) {
+            fourthButton.setVisible(true);
+            fourthButton.setText("Try to run away!");
+            if (random50 <= 2) {
+                fourthButton.setVisible(false);
+                textArea.setText("You failed to run away");
+            } else {
+                textArea.setText("You successfully runned away from the monster");
 
-// changing text on text window
-        textArea.setText(
-                // player attack
-                playerAttackFrase + playerDamage +
-                        " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + (currentMonster.getMonsterHealth()) +
-                        "\n\n" +
-                        // monster attack
-                        "The " + currentMonster.getMonsterName() +
-                        MonsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + (player.getHealth()));
-
+            }
+        }
     }
 
     @Override
@@ -266,10 +285,11 @@ public class Game implements Fight {
                 firstButton.setText("Show More");
                 break;
             case "Show More":
-                if (model.getMonsterListsize()==0){
+                if (model.getMonsterListsize() == 0) {
                     currentMonster = model.getMonster(0);
-                }else{
-                currentMonster = model.getMonster(getRandomNumberInRange(0, model.getMonsterListsize()));}
+                } else {
+                    currentMonster = model.getMonster(getRandomNumberInRange(0, model.getMonsterListsize()));
+                }
                 textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0, 3)));
                 firstButton.setText("ATTACK!");
                 thirdButton.setVisible(true);
@@ -313,12 +333,11 @@ public class Game implements Fight {
                     player.HolyKnightBoots = true;
                     break;
             }
-
+            item_calc();
             model.removeMonsterfromlist(currentMonster);
-            if(model.getMonsterListsize()==-1){
+            if (model.getMonsterListsize() == -1) {
                 endTextWinnerMethod();
-            }
-            else {
+            } else {
                 textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
                 firstButton.setText("Enter Smurfville");
                 firstButton.setVisible(true);
@@ -328,6 +347,34 @@ public class Game implements Fight {
             }
         } else {
             attack();
+        }
+    }
+
+    private void item_calc() {
+        // item calc
+        if (player.Excaliber){
+            sword.setOpacity(1.0);
+        }
+        if (player.GoldenShield) {
+            if (notTwice2 < 1) {
+                player.setHealth(player.getHealth() + model.getItemList().get(1).getHealth());
+                notTwice2++;
+            }
+            shield.setOpacity(1.0);
+        }
+        if (player.HolyKnightArmor) {
+            if (notTwice3 < 1) {
+                player.setHealth(player.getHealth() + model.getItemList().get(2).getHealth());
+                notTwice3++;
+            }
+            armor.setOpacity(1.0);
+        }
+        if (player.HolyKnightBoots) {
+            if (notTwice4 < 1) {
+                player.setHealth(player.getHealth() + model.getItemList().get(3).getHealth());
+                notTwice4++;
+            }
+            boots.setOpacity(1.0);
         }
     }
 
