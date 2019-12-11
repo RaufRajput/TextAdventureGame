@@ -80,20 +80,36 @@ public class Game implements Fight {
     @Override
     public void attack() {
 
+
+
     // random damage generator for player
     int playerDamage = getRandomNumberInRange(0, 7);
 
     // random damage generator for monster
-    int monsterDamage = getRandomNumberInRange(0, 7);
+    int monsterDamage = 0;
 
-    // Player attack frases
-    String PlayerAttackFrase;
+    if (currentMonster.getRace() == Race.TROLL){
+        monsterDamage = getRandomNumberInRange(0, 5);
+
+    } else if (currentMonster.getRace() == Race.ELF){
+        monsterDamage = getRandomNumberInRange(0, 4);
+
+    }else if (currentMonster.getRace() == Race.NinjaTurtle){
+        monsterDamage = getRandomNumberInRange(0, 3);
+
+    }else if (currentMonster.getRace() == Race.OGRE){
+        monsterDamage = getRandomNumberInRange(0, 6);
+    }
+
+        // Player attack frases
+        String playerAttackFrase;
+
     if (playerDamage == 0){
-        PlayerAttackFrase = "You MISSED and punched a tree for ";
+        playerAttackFrase = "You MISSED and punched a tree for ";
     }else if (playerDamage < 4 && playerDamage > 0){
-        PlayerAttackFrase = "You spanked the monster and did ";
+        playerAttackFrase = "You spanked the monster and did ";
     }else {
-        PlayerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
+        playerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
     }
 
         // Monster attack frases
@@ -116,7 +132,7 @@ public class Game implements Fight {
     // changing text on text window
         textArea.setText(
                 // player attack
-                PlayerAttackFrase + playerDamage +
+                playerAttackFrase + playerDamage +
             " damage!!!! " + "The " + currentMonster.getMonsterName() + " Health is " + (currentMonster.getMonsterHealth() - playerDamage) +
             "\n\n" +
             // monster attack
