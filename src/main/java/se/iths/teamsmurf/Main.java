@@ -36,5 +36,3 @@ public class Main extends Application {
         primaryStage.show();
     }
 }
-//TODO Göra om Controller till Singelton  (fila på Lösning...)
-//TODO Behålla se.iths.teamsmurf.Model som Singelton?
