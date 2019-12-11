@@ -284,7 +284,7 @@ public class Game implements Fight {
     }
 
     public void createNewPlayer() {
-        textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
+        textArea.setText("Welcome to your Monster punch Adventure." + "\n Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
     }
@@ -302,14 +302,14 @@ public class Game implements Fight {
     public void endTextPlayerDeadMethod() {
         firstButton.setVisible(true);
         thirdButton.setVisible(true);
-        textArea.setText("The honor is yours! You fought and fell with a dignity. R.I.P.");
+        textArea.setText("The honor is yours!" + "\n You fought and fell with a dignity. R.I.P.");
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
     }
 
     public void endTextMethodAfterRun() {
         model.setPlayerHealth(0);
-        textArea.setText("You have betrayed your fellows. The monster is still alive.");
+        textArea.setText("You have betrayed your fellows." + "\n The monster is still alive.");
         thirdButton.setVisible(true);
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");

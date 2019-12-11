@@ -20,10 +20,10 @@ public class Model {
         monsterAppearanceList.add(" is popping up in front of you!");
         monsterAppearanceList.add(" is threatening running towards you!");
         monsterAppearanceList.add(" is moving furiously to you!");
-        sceneList.add("You are eating a taco with your friends in your favorite smurvBar when you hear a big boom outside the gate. Woooooh!!");
-        sceneList.add("Sunny Saturday! You are right in the middle of annual flower festival by the lake. Some screams are reaching you from the crowd..");
+        sceneList.add("You are eating a taco with your friends in your favorite smurvBar when you hear a big boom outside the gate." + "\n Woooooh!!");
+        sceneList.add("Sunny Saturday! You are right in the middle of annual flower festival by the lake." + "\n Some screams are reaching you from the crowd..");
         sceneList.add("You are in the smurvMall to pick up some groceries when you hear the ceiling crashing..");
-        sceneList.add("You are at the Christmas party with your fellows. Time for dessert. But: it´s missing! Christmas tree suddenly falls down..");
+        sceneList.add("You are at the Christmas party with your fellows." + "\n Time for dessert. But: it´s missing!" + "\n Christmas tree suddenly falls down..");
         generateMonsters();
         createItems();
    }
