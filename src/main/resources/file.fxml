@@ -43,16 +43,26 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #383938;" GridPane.columnIndex="1" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #383938;" GridPane.rowIndex="1" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #383938;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="114.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="127.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="114.0" prefWidth="400.0" style="-fx-background-color: orange; -fx-border-color: black; -fx-border-radius: 8;" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Rockwell Nova Extra Bold Italic" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="127.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Roboto" size="36.0" />
+               </font></Button>
             <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" text="Button" />
+            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button">
+               <font>
+                  <Font name="Rockwell Nova Bold" size="36.0" />
+               </font></Button>
          </children>
       </GridPane>
    </bottom>
    <left>
 
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" style="-fx-background-color: #383938;">
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #383938;" BorderPane.alignment="CENTER">
          <children>
             <GridPane prefHeight="310.0" prefWidth="135.0">
               <columnConstraints>
