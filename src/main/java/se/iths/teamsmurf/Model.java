@@ -13,7 +13,7 @@ public class Model {
     private List<Monster> monsterList =new ArrayList<>();
     private List<String> monsterAppearanceList = new ArrayList<>();
     private List<String> sceneList = new ArrayList<>();
-    private List<String> items = new ArrayList<>();
+    private List<Item> itemList = new ArrayList<>();
 
     private Model(){
         monsterAppearanceList.add(" is jumping towards you!");
@@ -25,6 +25,7 @@ public class Model {
         sceneList.add("You are in the smurvMall to pick up some groceries when you hear the ceiling crashing..");
         sceneList.add("You are at the Christmas party with your fellows. Time for dessert. But: it´s missing! Christmas tree suddenly falls down..");
         generateMonsters();
+        createItems();
    }
 
     public void generateMonsters() {
@@ -35,6 +36,10 @@ public class Model {
     }
 
     public void createItems() {
+        itemList.add(new Item("Excaliber", 5, 0));
+        itemList.add(new Item("Golden Shield", 2, 0));
+        itemList.add(new Item("Holy Knight Armor", 0, 67));
+        itemList.add(new Item("Holy Knight Helmet", 0, 33));
     }
 
     public static Model getInstance() {
