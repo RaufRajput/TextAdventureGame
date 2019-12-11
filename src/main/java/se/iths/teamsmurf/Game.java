@@ -76,7 +76,18 @@ public class Game implements Fight {
     @Override
     public void attack() {
 
-
+        if (player.getHealth() < 20){
+            fourthButton.setVisible(true);
+            fourthButton.setText("Try to run");
+            int random50 = getRandomNumberInRange(0,1);
+            if (random50 == 0){
+                fourthButton.setVisible(false);
+                textArea.setText("You failed to run away");
+            }else if (random50 == 1){
+                fourthButton.setVisible(true);
+                fourthButton.setText("Try to run away!");
+            }
+        }
 
     // random damage generator for player
     int playerDamage = getRandomNumberInRange(0, 7);
@@ -258,6 +269,15 @@ public class Game implements Fight {
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
+        switch (fourthButton.getText()) {
+            case "Try to run away!":
+                textArea.setText("You successfully runned away!");
+                firstButton.setVisible(true);
+                secondButton.setVisible(false);
+                fourthButton.setVisible(false);
+                firstButton.setText("Enter Smurfville");
+                break;
+        }
     }
 
     public void createNewPlayer() {
