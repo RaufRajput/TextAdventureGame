@@ -77,7 +77,7 @@ public class Game implements Fight {
     public void attack() {
 
         int random50 = getRandomNumberInRange(0,1);
-        if (player.getHealth() < 20){
+        if (player.getHealth() < 25){
             fourthButton.setVisible(true);
             fourthButton.setText("Try to run");
             if (random50 == 0){
@@ -92,6 +92,11 @@ public class Game implements Fight {
 
         // random damage generator for player
         int playerDamage = getRandomNumberInRange(0, 7);
+        player.Excaliber = true;
+        if (player.Excaliber){
+            playerDamage = playerDamage + model.getItemList().get(0).getDamage();
+        }
+
 
         // random damage generator for monster
         int monsterDamage = 0;

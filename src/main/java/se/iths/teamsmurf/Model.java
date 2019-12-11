@@ -49,6 +49,11 @@ public class Model {
         }
         return instance;
     }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
     public SimpleIntegerProperty playerHealthProperty(){
         return playerHealth;
     }
@@ -65,9 +70,11 @@ public class Model {
     public Monster getMonster(int i){
         return monsterList.get(i);
     }
+
     public int getMonsterListsize(){
         return this.monsterList.size()-1;
     }
+
     public String getMonsterAppearance(int i){
         return monsterAppearanceList.get(i);
     }
@@ -78,6 +85,7 @@ public class Model {
          }
         }
     }
+
     public String getScene(int i){
         return sceneList.get(i);
     }

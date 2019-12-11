@@ -3,6 +3,7 @@ package se.iths.teamsmurf;
 public class Player {
     private int health;
     private Gender gender;
+    boolean Excaliber;
 
     public Player(int health) {
         this.health = health;
@@ -23,6 +24,8 @@ public class Player {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
+
 }
 
 
