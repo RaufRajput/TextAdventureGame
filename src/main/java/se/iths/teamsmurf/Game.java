@@ -238,7 +238,7 @@ public class Game implements Fight {
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
             model.removeMonsterfromlist(currentMonster);
-            textArea.setText("Congratulations!, you have slain the " + currentMonster.getMonsterName());
+            textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
             firstButton.setText("Enter Smurfville");
             firstButton.setVisible(true);
             secondButton.setVisible(false);
