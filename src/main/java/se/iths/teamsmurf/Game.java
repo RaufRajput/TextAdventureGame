@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -30,6 +31,14 @@ public class Game implements Fight {
     ProgressBar newHealthbar;
     @FXML
     Text monsterText;
+    @FXML
+    private ImageView sword;
+    @FXML
+    private ImageView armor;
+    @FXML
+    private ImageView boots;
+    @FXML
+    private ImageView shield;
 
     private static Game instance = null;
     private Model model;
@@ -68,10 +77,15 @@ public class Game implements Fight {
         model.setMonsterHealth(0);
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
+        sword.setOpacity(0.3);
+        armor.setOpacity(0.3);
+        boots.setOpacity(0.3);
+        shield.setOpacity(0.3);
     }
 
     public void init(Scene scene) {
     }
+
 
     @Override
     public void attack() {
@@ -92,9 +106,9 @@ public class Game implements Fight {
 
         // random damage generator for player
         int playerDamage = getRandomNumberInRange(0, 7);
-        player.Excaliber = true;
         if (player.Excaliber){
             playerDamage = playerDamage + model.getItemList().get(0).getDamage();
+            sword.setOpacity(1.0);
         }
 
 
@@ -242,6 +256,16 @@ public class Game implements Fight {
             endTextPlayerDeadMethod();
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
+            if (currentMonster.getRace() == Race.NinjaTurtle){
+                player.Excaliber = true;
+            }else if (currentMonster.getRace() == Race.TROLL){
+
+            }else if (currentMonster.getRace() == Race.OGRE){
+
+            }else if (currentMonster.getRace() == Race.ELF){
+
+            }
+
             model.removeMonsterfromlist(currentMonster);
             textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
             firstButton.setText("Enter Smurfville");

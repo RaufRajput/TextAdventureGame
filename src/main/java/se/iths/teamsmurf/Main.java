@@ -37,7 +37,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene (root));
         primaryStage.setResizable(false);
         controller.init (primaryStage.getScene ());
-
         String musicFile = "haha.mp3";
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);

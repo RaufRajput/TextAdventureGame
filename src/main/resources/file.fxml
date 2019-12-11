@@ -128,7 +128,7 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefHeight="307.0" prefWidth="100.0" style="-fx-background-color: red;">
+            <GridPane prefHeight="307.0" prefWidth="100.0" style="-fx-background-color: black;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
