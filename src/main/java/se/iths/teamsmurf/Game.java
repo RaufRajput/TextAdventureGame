@@ -46,6 +46,11 @@ public class Game implements Fight {
     private Monster currentMonster;
     private Player player;
 
+    private int notTwice1 = 0;
+    private int notTwice2 = 0;
+    private int notTwice3 = 0;
+    private int notTwice4 = 0;
+
     //<editor-fold desc="Singelton Constructor">
     private Game(Model model) {
         this.model = model;
@@ -106,10 +111,6 @@ public class Game implements Fight {
 
         // random damage generator for player
         int playerDamage = getRandomNumberInRange(0, 7);
-        if (player.Excaliber){
-            playerDamage = playerDamage + model.getItemList().get(0).getDamage();
-            sword.setOpacity(1.0);
-        }
 
 
         // random damage generator for monster
@@ -126,6 +127,38 @@ public class Game implements Fight {
 
         } else if (currentMonster.getRace() == Race.OGRE) {
             monsterDamage = getRandomNumberInRange(0, 6);
+        }
+
+
+
+        // item calc
+        if (player.Excaliber){
+            if (notTwice1 < 1){
+                playerDamage = playerDamage + model.getItemList().get(0).getDamage();
+                notTwice1++;
+            }
+            sword.setOpacity(1.0);
+        }
+        if (player.GoldenShield){
+            if (notTwice2 < 1){
+                player.setHealth(player.getHealth() + model.getItemList().get(2).getHealth());
+                notTwice2++;
+            }
+            shield.setOpacity(1.0);
+        }
+        if (player.HolyKnightArmor){
+            if (notTwice3 < 1){
+                player.setHealth(player.getHealth() + model.getItemList().get(3).getHealth());
+                notTwice3++;
+            }
+            armor.setOpacity(1.0);
+        }
+        if (player.HolyKnightBoots){
+            if (notTwice4 < 1){
+                player.setHealth(player.getHealth() + model.getItemList().get(4).getHealth());
+                notTwice4++;
+            }
+            boots.setOpacity(1.0);
         }
 
         // Player attack frases
@@ -259,18 +292,19 @@ public class Game implements Fight {
             endTextPlayerDeadMethod();
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
+
             switch (currentMonster.getRace()) {
                 case NinjaTurtle:
                     player.Excaliber = true;
                     break;
                 case TROLL:
-
+                    player.GoldenShield = true;
                     break;
                 case OGRE:
-
+                    player.HolyKnightArmor = true;
                     break;
                 case ELF:
-
+                    player.HolyKnightBoots = true;
                     break;
             }
 

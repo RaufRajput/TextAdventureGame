@@ -37,9 +37,9 @@ public class Model {
 
     public void createItems() {
         itemList.add(new Item("Excaliber", 5, 0));
-        itemList.add(new Item("Golden Shield", 2, 0));
-        itemList.add(new Item("Holy Knight Armor", 0, 67));
-        itemList.add(new Item("Holy Knight Helmet", 0, 33));
+        itemList.add(new Item("GoldenShield", 0, 55));
+        itemList.add(new Item("HolyKnightArmor", 0, 67));
+        itemList.add(new Item("HolyKnightBoots", 0, 33));
     }
 
     public static Model getInstance() {

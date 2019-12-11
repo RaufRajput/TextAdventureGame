@@ -4,6 +4,9 @@ public class Player {
     private int health;
     private Gender gender;
     boolean Excaliber;
+    boolean GoldenShield;
+    boolean HolyKnightArmor;
+    boolean HolyKnightBoots;
 
     public Player(int health) {
         this.health = health;
