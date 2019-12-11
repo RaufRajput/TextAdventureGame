@@ -51,7 +51,6 @@ public class Game implements Fight {
     private Image bildF;
     private Image bildM;
 
-    private int notTwice1 = 0;
     private int notTwice2 = 0;
     private int notTwice3 = 0;
     private int notTwice4 = 0;
@@ -142,10 +141,7 @@ public class Game implements Fight {
 
         // item calc
         if (player.Excaliber){
-            if (notTwice1 < 1){
-                playerDamage = playerDamage + model.getItemList().get(0).getDamage();
-                notTwice1++;
-            }
+            playerDamage = playerDamage + model.getItemList().get(0).getDamage();
             sword.setOpacity(1.0);
         }
         if (player.GoldenShield){
