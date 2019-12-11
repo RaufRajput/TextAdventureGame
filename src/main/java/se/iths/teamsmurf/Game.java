@@ -268,6 +268,8 @@ public class Game implements Fight {
                 thirdButton.setVisible(false);
                 firstButton.setText("start");
                 textArea.setText("Click start to play Monster Punch!!!!!!!!!");
+                player.setHealth(100);
+                model.setPlayerHealth(100);
                 break;
         }
     }
