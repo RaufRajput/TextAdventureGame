@@ -43,16 +43,30 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #383938;" GridPane.columnIndex="1" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #383938;" GridPane.rowIndex="1" />
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #383938;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="114.0" prefWidth="400.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="127.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" text="Button" />
+            <Button fx:id="secondButton" mnemonicParsing="false" onAction="#secondButtonAction" prefHeight="114.0" prefWidth="400.0" style="-fx-background-color: orange; -fx-border-color: black; -fx-border-radius: 8;" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Rockwell Nova Extra Bold Italic" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: green; -fx-border-color: black;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Rockwell Nova Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" style="-fx-background-color: red; -fx-border-color: black;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Segoe Print Bold" size="24.0" />
+               </font></Button>
+            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" style="-fx-background-color: green; -fx-border-color: black;" text="Button">
+               <font>
+                  <Font name="Rockwell Nova Bold" size="36.0" />
+               </font></Button>
          </children>
       </GridPane>
    </bottom>
    <left>
 
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" style="-fx-background-color: #383938;">
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #383938;" BorderPane.alignment="CENTER">
          <children>
             <GridPane prefHeight="310.0" prefWidth="135.0">
               <columnConstraints>
@@ -114,7 +128,7 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefHeight="307.0" prefWidth="100.0">
+            <GridPane prefHeight="307.0" prefWidth="100.0" style="-fx-background-color: red;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -125,19 +139,19 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="sword" fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="https://imgur.com/4egx18K.png" />
                      </image></ImageView>
-                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fx:id="armor" fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="https://imgur.com/3l792K8.png" />
                      </image></ImageView>
-                  <ImageView fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                  <ImageView fx:id="boots" fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                      <image>
                         <Image url="https://imgur.com/pfyrYWS.png" />
                      </image></ImageView>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                  <ImageView fx:id="shield" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                      <image>
                         <Image url="https://imgur.com/OsdbpLp.png" />
                      </image>
@@ -152,7 +166,7 @@
          <children>
             <TextArea fx:id="textArea" layoutX="-3.0" prefHeight="309.0" prefWidth="604.0" wrapText="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Rockwell Nova Italic" size="18.0" />
                </font></TextArea>
             <ImageView blendMode="DARKEN" fitHeight="309.0" fitWidth="606.0" layoutX="-2.0" pickOnBounds="true">
                <image>
