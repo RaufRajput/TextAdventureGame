@@ -39,7 +39,6 @@ public class Main extends Application {
         controller.init (primaryStage.getScene ());
 
         String musicFile = "haha.mp3";
-
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
