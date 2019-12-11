@@ -1,6 +1,5 @@
 package se.iths.teamsmurf;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class Model {
         monsterList.add(new Monster(30,Race.ELF));
         monsterList.add(new Monster(60,Race.TROLL));
         monsterList.add(new Monster(80,Race.OGRE));
-        monsterList.add(new Monster(100,Race.HUMAN));
+        monsterList.add(new Monster(100,Race.NinjaTurtle));
     }
 
     public static Model getInstance() {
