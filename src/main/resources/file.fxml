@@ -48,11 +48,14 @@
                   <Font name="Rockwell Nova Extra Bold Italic" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="127.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
-                  <Font name="Roboto" size="36.0" />
+                  <Font name="Roboto Bold" size="36.0" />
                </font></Button>
-            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" style="-fx-background-color: red;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="64.0" />
+               </font></Button>
             <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button">
                <font>
                   <Font name="Rockwell Nova Bold" size="36.0" />
