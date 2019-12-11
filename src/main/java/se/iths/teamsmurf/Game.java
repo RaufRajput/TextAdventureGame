@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -30,12 +32,16 @@ public class Game implements Fight {
     ProgressBar newHealthbar;
     @FXML
     Text monsterText;
+    @FXML
+    ImageView playerAvatar;
 
     private static Game instance = null;
     private Model model;
     private Stage stage;
     private Monster currentMonster;
     private Player player;
+    private Image bildF;
+    private Image bildM;
 
     //<editor-fold desc="Singelton Constructor">
     private Game(Model model) {
@@ -56,6 +62,10 @@ public class Game implements Fight {
     }
 
     public void initialize() {
+        bildF = new Image(String.valueOf(getClass().getResource("/IMG_8225.jpg")));
+        bildM = new Image(String.valueOf(getClass().getResource("/Arsto.jpg")));
+
+
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
         model.setPlayerHealth(player.getHealth());
@@ -68,6 +78,7 @@ public class Game implements Fight {
         model.setMonsterHealth(0);
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
+
     }
 
     public void init(Scene scene) {
@@ -197,6 +208,7 @@ public class Game implements Fight {
                 break;
             case "Lady Smurf":
                 player.setGender(Gender.FEMALE);
+                playerAvatar.setImage(bildF);
                 textArea.setText("You have chosen Lady Smurf");
                 thirdButton.setVisible(false);
                 firstButton.setText("Continue");
@@ -261,6 +273,7 @@ public class Game implements Fight {
         switch (thirdButton.getText()) {
             case "Boy Smurf":
                 player.setGender(Gender.MALE);
+                playerAvatar.setImage(bildM);
                 textArea.setText("You have chosen Boy Smurf");
                 thirdButton.setVisible(false);
                 firstButton.setText("Continue");

@@ -118,6 +118,8 @@
                            </light>
                         </Lighting>
                      </effect></ProgressBar>
+                  <ImageView fx:id="playerAvatar" fitHeight="103.0" fitWidth="100.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                  </ImageView>
                </children>
                <effect>
                   <Glow level="1.0" />
