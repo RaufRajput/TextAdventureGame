@@ -208,7 +208,7 @@ public class Game implements Fight {
                 firstButton.setText("Show More");
                 break;
             case "Show More":
-                currentMonster = model.getMonster(getRandomNumberInRange(0, 3));
+                currentMonster = model.getMonster(getRandomNumberInRange(0, model.getMonsterListsize()));
                 textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0, 3)));
                 firstButton.setText("ATTACK!");
                 thirdButton.setVisible(true);
