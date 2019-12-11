@@ -48,15 +48,16 @@
                   <Font name="Rockwell Nova Extra Bold Italic" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="thirdButton" mnemonicParsing="false" onAction="#thirdButtonAction" prefHeight="90.0" prefWidth="400.0" style="-fx-background-color: green; -fx-border-color: black;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
-                  <Font name="Roboto Bold" size="36.0" />
-               </font></Button>
-            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" style="-fx-background-color: red;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Font name="Rockwell Nova Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="fourthButton" mnemonicParsing="false" onAction="#fourthButtonAction" prefHeight="99.0" prefWidth="400.0" style="-fx-background-color: red; -fx-border-color: black;" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
-                  <Font size="64.0" />
+                  <Font name="Segoe Print Bold" size="24.0" />
                </font></Button>
-            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" style="-fx-background-color: green;" text="Button">
+            <Button fx:id="firstButton" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onAction="#firstButtonAction" prefHeight="110.0" prefWidth="400.0" style="-fx-background-color: green; -fx-border-color: black;" text="Button">
                <font>
                   <Font name="Rockwell Nova Bold" size="36.0" />
                </font></Button>
@@ -165,7 +166,7 @@
          <children>
             <TextArea fx:id="textArea" layoutX="-3.0" prefHeight="309.0" prefWidth="604.0" wrapText="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Rockwell Nova Italic" size="18.0" />
                </font></TextArea>
             <ImageView blendMode="DARKEN" fitHeight="309.0" fitWidth="606.0" layoutX="-2.0" pickOnBounds="true">
                <image>
