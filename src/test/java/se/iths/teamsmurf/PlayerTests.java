@@ -10,6 +10,10 @@ public class PlayerTests {
     void setupPlayer(){
         p=new Player(100);
     }
+    @AfterAll
+    void cleanUpOfPlayer(){
+        p=null;
+    }
     @Test
     @Order(1)
     @DisplayName("Testing Player health value")
@@ -28,10 +32,11 @@ public class PlayerTests {
     }
     @Test
     @Order(3)
-    @DisplayName("Testing Player setting health value")
+    @DisplayName("Testing Player Gender Enum")
     void playerShouldReturnAnGender(TestInfo info){
         p.setGender(Gender.MALE);
         assertNotEquals(Gender.FEMALE,p.getGender());
         assertEquals(Gender.MALE,p.getGender());
+        System.out.println(info.getDisplayName());
     }
 }
