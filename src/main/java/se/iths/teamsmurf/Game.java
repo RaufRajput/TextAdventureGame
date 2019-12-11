@@ -91,6 +91,10 @@ public class Game implements Fight {
         model.setMonsterHealth(0);
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
+        SetLowOpacityOnAllItems();
+    }
+
+    private void SetLowOpacityOnAllItems() {
         sword.setOpacity(0.3);
         armor.setOpacity(0.3);
         boots.setOpacity(0.3);
@@ -103,7 +107,6 @@ public class Game implements Fight {
 
     @Override
     public void attack() {
-
         beAbleToRunLowHp();
         int playerDamage = getPlayerDamage();
         int monsterDamage = getMonsterDamage();
@@ -136,7 +139,7 @@ public class Game implements Fight {
 
     private int getPlayerDamageWhenExcaliberIsActive(int playerDamage) {
         // item calc
-        if (player.Excaliber){
+        if (player.Excaliber) {
             playerDamage = playerDamage + model.getItemList().get(0).getDamage();
             sword.setOpacity(1.0);
         }
@@ -185,9 +188,9 @@ public class Game implements Fight {
             playerAttackFrase = "You MISSED and punched a tree for ";
         } else if (playerDamage < 4 && playerDamage > 0) {
             playerAttackFrase = "You spanked the monster and did ";
-        } else if (playerDamage > 4 && playerDamage < 10){
+        } else if (playerDamage > 4 && playerDamage < 10) {
             playerAttackFrase = "You punched him REALY hard for ";
-        }else {
+        } else {
             playerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
         }
         return playerAttackFrase;
@@ -352,7 +355,7 @@ public class Game implements Fight {
 
     private void item_calc() {
         // item calc
-        if (player.Excaliber){
+        if (player.Excaliber) {
             sword.setOpacity(1.0);
         }
         if (player.GoldenShield) {
