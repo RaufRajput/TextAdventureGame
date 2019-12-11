@@ -246,12 +246,17 @@ public class Game implements Fight {
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
             model.removeMonsterfromlist(currentMonster);
-            textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
-            firstButton.setText("Enter Smurfville");
-            firstButton.setVisible(true);
-            secondButton.setVisible(false);
-            thirdButton.setVisible(false);
-            fourthButton.setVisible(false);
+            if(model.getMonsterListsize()==-1){
+                endTextWinnerMethod();
+            }
+            else {
+                textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
+                firstButton.setText("Enter Smurfville");
+                firstButton.setVisible(true);
+                secondButton.setVisible(false);
+                thirdButton.setVisible(false);
+                fourthButton.setVisible(false);
+            }
         } else {
             attack();
         }
@@ -275,6 +280,7 @@ public class Game implements Fight {
                 textArea.setText("Click start to play Monster Punch!!!!!!!!!");
                 player.setHealth(100);
                 model.setPlayerHealth(100);
+                currentMonster = null;
                 break;
         }
     }
@@ -325,6 +331,10 @@ public class Game implements Fight {
 
     public void endTextWinnerMethod() {
         textArea.setText("Congratulations! You are the hero!");
+        firstButton.setVisible(true);
+        thirdButton.setVisible(true);
+        secondButton.setVisible(false);
+        fourthButton.setVisible(false);
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
     }
