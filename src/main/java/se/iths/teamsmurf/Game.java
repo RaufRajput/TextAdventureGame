@@ -148,11 +148,11 @@ public class Game implements Fight {
         textArea.setText(
                 // player attack
                 playerAttackFrase + playerDamage +
-                        " damage!!!! " + "The " + currentMonster.getMonsterName() + " Health is " + (currentMonster.getMonsterHealth()) +
+                        " damage!!!! " + "The " + currentMonster.getMonsterName() + "\n Health is " + (currentMonster.getMonsterHealth()) +
                         "\n\n" +
                         // monster attack
                         "The " + currentMonster.getMonsterName() +
-                        MonsterAttackFrase + monsterDamage + " in damage. " + "Your current health is " + (player.getHealth()));
+                        MonsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + (player.getHealth()));
 
     }
 
