@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Main extends Application {
     private Model model;
@@ -33,6 +37,13 @@ public class Main extends Application {
         primaryStage.setScene(new Scene (root));
         primaryStage.setResizable(false);
         controller.init (primaryStage.getScene ());
+
+        String musicFile = "haha.mp3";
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+
         primaryStage.show();
     }
 }
