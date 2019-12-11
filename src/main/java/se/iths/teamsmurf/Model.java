@@ -13,6 +13,7 @@ public class Model {
     private List<Monster> monsterList =new ArrayList<>();
     private List<String> monsterAppearanceList = new ArrayList<>();
     private List<String> sceneList = new ArrayList<>();
+    private List<String> items = new ArrayList<>();
 
     private Model(){
         monsterAppearanceList.add(" is jumping towards you!");
@@ -31,6 +32,9 @@ public class Model {
         monsterList.add(new Monster(60,Race.TROLL));
         monsterList.add(new Monster(80,Race.OGRE));
         monsterList.add(new Monster(100,Race.NinjaTurtle));
+    }
+
+    public void createItems() {
     }
 
     public static Model getInstance() {
