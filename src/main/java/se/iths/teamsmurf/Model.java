@@ -65,6 +65,9 @@ public class Model {
     public Monster getMonster(int i){
         return monsterList.get(i);
     }
+    public int getMonsterListsize(){
+        return this.monsterList.size()-1;
+    }
     public String getMonsterAppearance(int i){
         return monsterAppearanceList.get(i);
     }
