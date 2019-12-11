@@ -41,7 +41,7 @@ public class Game implements Fight {
     @FXML
     private ImageView shield;
     @FXML
-    private Image playerAvatar;
+    ImageView playerAvatar;
 
     private static Game instance = null;
     private Model model;
