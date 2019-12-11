@@ -238,6 +238,7 @@ public class Game implements Fight {
             fourthButton.setVisible(false);
             firstButton.setText("Good Bye");
         }else if (currentMonster.getMonsterHealth() <= 0){
+            model.removeMonsterfromlist(currentMonster);
             System.out.println("monster is dead");
             textArea.setText("Congratulations!, you have slain the " + currentMonster.getMonsterName());
             firstButton.setVisible(true);
