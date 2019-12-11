@@ -259,14 +259,19 @@ public class Game implements Fight {
             endTextPlayerDeadMethod();
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
-            if (currentMonster.getRace() == Race.NinjaTurtle){
-                player.Excaliber = true;
-            }else if (currentMonster.getRace() == Race.TROLL){
+            switch (currentMonster.getRace()) {
+                case NinjaTurtle:
+                    player.Excaliber = true;
+                    break;
+                case TROLL:
 
-            }else if (currentMonster.getRace() == Race.OGRE){
+                    break;
+                case OGRE:
 
-            }else if (currentMonster.getRace() == Race.ELF){
+                    break;
+                case ELF:
 
+                    break;
             }
 
             model.removeMonsterfromlist(currentMonster);
