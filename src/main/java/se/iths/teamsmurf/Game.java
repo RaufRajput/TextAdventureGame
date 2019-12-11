@@ -125,23 +125,22 @@ public class Game implements Fight {
         secondButton.setVisible(true);
         secondButton.setText("Punch");
 
-    // changing text on text window
+        //  Decrease Hp player
+        player.setHealth(player.getHealth() - monsterDamage);
+        model.setPlayerHealth(player.getHealth());
+        //  Decrease Hp monster
+        currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
+        model.setMonsterHealth(currentMonster.getMonsterHealth());
+
+// changing text on text window
         textArea.setText(
                 // player attack
                 playerAttackFrase + playerDamage +
-            " damage!!!! " + "The " + currentMonster.getMonsterName() + " Health is " + (currentMonster.getMonsterHealth() - playerDamage) +
-            "\n\n" +
-            // monster attack
-            "The " + currentMonster.getMonsterName() +
-             MonsterAttackFrase  + monsterDamage + " in damage. " + "Your current health is " + (player.getHealth() - monsterDamage));
-
-    //  Decrease Hp player
-        player.setHealth(player.getHealth() - monsterDamage);
-        model.setPlayerHealth(player.getHealth() - monsterDamage);
-
-    //  Decrease Hp monster
-        currentMonster.Health(currentMonster.getMonsterHealth() - playerDamage);
-        model.setMonsterHealth(currentMonster.getMonsterHealth() - playerDamage);
+                        " damage!!!! " + "The " + currentMonster.getMonsterName() + " Health is " + (currentMonster.getMonsterHealth()) +
+                        "\n\n" +
+                        // monster attack
+                        "The " + currentMonster.getMonsterName() +
+                        MonsterAttackFrase  + monsterDamage + " in damage. " + "Your current health is " + (player.getHealth()));
 
     }
 
