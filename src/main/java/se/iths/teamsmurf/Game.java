@@ -58,6 +58,7 @@ public class Game implements Fight {
     public void initialize() {
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
+        model.setPlayerHealth(player.getHealth());
         firstButton.setText("start");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
@@ -181,9 +182,7 @@ public class Game implements Fight {
                 break;
             case "Show More" :
                 currentMonster = model.getMonster(getRandomNumberInRange(0,3));
-                model.setMonsterHealth(currentMonster.getMonsterHealth());
                 textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0,3)));
-
                 firstButton.setText("ATTACK!");
                 thirdButton.setVisible(true);
                 thirdButton.setText("Run and hide!");
@@ -250,7 +249,6 @@ public class Game implements Fight {
         textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
-        model.setPlayerHealth(100);
     }
 
     private static int getRandomNumberInRange(int min, int max) {
