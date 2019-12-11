@@ -148,11 +148,11 @@ public class Game implements Fight {
         textArea.setText(
                 // player attack
                 playerAttackFrase + playerDamage +
-                        " damage!!!! " + "The " + currentMonster.getMonsterName() + " Health is " + (currentMonster.getMonsterHealth()) +
+                        " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + (currentMonster.getMonsterHealth()) +
                         "\n\n" +
                         // monster attack
                         "The " + currentMonster.getMonsterName() +
-                        MonsterAttackFrase + monsterDamage + " in damage. " + "Your current health is " + (player.getHealth()));
+                        MonsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + (player.getHealth()));
 
     }
 
@@ -238,7 +238,7 @@ public class Game implements Fight {
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
             model.removeMonsterfromlist(currentMonster);
-            textArea.setText("Congratulations!, you have slain the " + currentMonster.getMonsterName());
+            textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
             firstButton.setText("Enter Smurfville");
             firstButton.setVisible(true);
             secondButton.setVisible(false);
@@ -284,7 +284,7 @@ public class Game implements Fight {
     }
 
     public void createNewPlayer() {
-        textArea.setText("Welcome to your Monster punch Adventure." + "\n Select desired gender with the buttons below.");
+        textArea.setText("Welcome to your Monster punch Adventure." + "\nSelect desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
     }
@@ -302,14 +302,14 @@ public class Game implements Fight {
     public void endTextPlayerDeadMethod() {
         firstButton.setVisible(true);
         thirdButton.setVisible(true);
-        textArea.setText("The honor is yours!" + "\n You fought and fell with a dignity. R.I.P.");
+        textArea.setText("The honor is yours!" + "\nYou fought and fell with a dignity. R.I.P.");
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
     }
 
     public void endTextMethodAfterRun() {
         model.setPlayerHealth(0);
-        textArea.setText("You have betrayed your fellows." + "\n The monster is still alive.");
+        textArea.setText("You have betrayed your fellows." + "\nThe monster is still alive.");
         thirdButton.setVisible(true);
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
