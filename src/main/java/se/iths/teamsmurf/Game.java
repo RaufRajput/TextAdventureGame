@@ -232,18 +232,15 @@ public class Game implements Fight {
     public void secondButtonAction(ActionEvent actionEvent) {
 
         if (player.getHealth() <= 0) {
-            System.out.println("player dead");
-            textArea.setText("You died.. RIP");
-            firstButton.setVisible(true);
             secondButton.setVisible(false);
-            thirdButton.setVisible(false);
             fourthButton.setVisible(false);
-            firstButton.setText("Good Bye");
+            endTextPlayerDeadMethod();
+
         } else if (currentMonster.getMonsterHealth() <= 0) {
             model.removeMonsterfromlist(currentMonster);
             textArea.setText("Congratulations!, you have slain the " + currentMonster.getMonsterName());
-            firstButton.setVisible(true);
             firstButton.setText("Enter Smurfville");
+            firstButton.setVisible(true);
             secondButton.setVisible(false);
             thirdButton.setVisible(false);
             fourthButton.setVisible(false);
@@ -303,6 +300,8 @@ public class Game implements Fight {
     }
 
     public void endTextPlayerDeadMethod() {
+        firstButton.setVisible(true);
+        thirdButton.setVisible(true);
         textArea.setText("The honor is yours! You fought and fell with a dignity. R.I.P.");
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
