@@ -1,8 +1,7 @@
 package se.iths.teamsmurf;
 
-import javafx.application.Platform;
+
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -57,16 +56,13 @@ public class Game implements Fight {
     }
 
     public void initialize() {
-
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
+        model.setPlayerHealth(player.getHealth());
         firstButton.setText("start");
         secondButton.setVisible(false);
         thirdButton.setVisible(false);
         fourthButton.setVisible(false);
-        //Next line replaces onAction="#button1Action" in fxml file
-        // firstButton.addEventHandler(ActionEvent.ACTION,this::firstButtonAction);
-        //Will run after all fields are set and view is ready
         newHealthbar.progressProperty().bind(model.monsterHealthProperty().multiply(0.01));
         healthBar.progressProperty().bind(model.playerHealthProperty().multiply(0.01));
         model.setMonsterHealth(0);
@@ -202,9 +198,7 @@ public class Game implements Fight {
                 break;
             case "Show More" :
                 currentMonster = model.getMonster(getRandomNumberInRange(0,3));
-                model.setMonsterHealth(currentMonster.getMonsterHealth());
                 textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0,3)));
-
                 firstButton.setText("ATTACK!");
                 thirdButton.setVisible(true);
                 thirdButton.setText("Run and hide!");
@@ -271,7 +265,6 @@ public class Game implements Fight {
         textArea.setText("Welcome to your Monster punch Adventure. Select desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
-        model.setPlayerHealth(100);
     }
 
     private static int getRandomNumberInRange(int min, int max) {
