@@ -253,18 +253,22 @@ public class Game implements Fight {
     }
 
     public void thirdButtonAction(ActionEvent actionEvent) {
-        if (thirdButton.getText().equals("Boy Smurf")) {
-            player.setGender(Gender.MALE);
-            textArea.setText("You have chosen Boy Smurf");
-            thirdButton.setVisible(false);
-            firstButton.setText("Continue");
-        } else if (thirdButton.getText().equals("Run and hide!")) {
-            runAndHide();
-        } else if (thirdButton.getText().equals("Try Again")) {
-            model.generateMonsters();
-            thirdButton.setVisible(false);
-            firstButton.setText("start");
-            textArea.setText("Click start to play Monster Punch!!!!!!!!!");
+        switch (thirdButton.getText()) {
+            case "Boy Smurf":
+                player.setGender(Gender.MALE);
+                textArea.setText("You have chosen Boy Smurf");
+                thirdButton.setVisible(false);
+                firstButton.setText("Continue");
+                break;
+            case "Run and hide!":
+                runAndHide();
+                break;
+            case "Try Again":
+                model.generateMonsters();
+                thirdButton.setVisible(false);
+                firstButton.setText("start");
+                textArea.setText("Click start to play Monster Punch!!!!!!!!!");
+                break;
         }
     }
 
