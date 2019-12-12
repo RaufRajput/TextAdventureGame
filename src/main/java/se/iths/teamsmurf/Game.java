@@ -459,7 +459,7 @@ public class Game implements Fight {
     public void fourthButtonAction(ActionEvent actionEvent) {
         switch (fourthButton.getText()) {
             case "Try to run away!":
-                textArea.setText("You successfully runned away!");
+                textArea.setText("You successfully ran away!");
                 firstButton.setVisible(true);
                 secondButton.setVisible(false);
                 fourthButton.setVisible(false);
