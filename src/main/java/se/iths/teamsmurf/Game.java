@@ -358,6 +358,9 @@ public class Game implements Fight {
                 endTextWinnerMethod();
             } else {
                 textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
+
+                // make if statement with what items u get based on monstertype
+
                 firstButton.setText("Enter Smurfville");
                 firstButton.setVisible(true);
                 secondButton.setVisible(false);
