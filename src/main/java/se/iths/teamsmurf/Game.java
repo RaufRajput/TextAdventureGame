@@ -88,7 +88,7 @@ public class Game implements Fight {
         bildM = new Image(String.valueOf(getClass().getResource("/Arsto.jpg")));
         musicFile = "haha.mp3";
         sound = new Media(new File(musicFile).toURI().toString());
-        mediaPlayer = new MediaPlayer(sound)
+        mediaPlayer = new MediaPlayer(sound);
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
         model.setPlayerHealth(player.getHealth());
