@@ -387,10 +387,10 @@ public class Game implements Fight {
             } else {
                 if (currentMonster.getRace() == Race.NinjaTurtle) {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
-                            "You found " + ItemName + damageAdded + " test");
-                } else {
+                            "Cha-ching! You found " + ItemName + damageAdded);
+                }else {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
-                            "You found " + ItemName + healthAdded);
+                            "You picked up " + ItemName + healthAdded);
                 }
 
                 firstButton.setText("Enter Smurfville");
