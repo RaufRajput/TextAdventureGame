@@ -107,7 +107,6 @@ public class Game implements Fight {
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
         mediaPlayer.play() );
-
     }
 
     private void SetLowOpacityOnAllItems() {
@@ -119,7 +118,6 @@ public class Game implements Fight {
 
     public void init(Scene scene) {
     }
-
 
     @Override
     public void attack() {
@@ -256,14 +254,8 @@ public class Game implements Fight {
                 textArea.setText("You failed to run away");
             } else {
                 textArea.setText("You successfully ran away");
-
             }
         }
-    }
-
-    @Override
-    public void defense(int a) {
-
     }
 
     public void runAndHide() {
@@ -271,7 +263,6 @@ public class Game implements Fight {
         thirdButton.setVisible(false);
         secondButton.setVisible(false);
         firstButton.setText("Next");
-
     }
 
     public void runAndHide2() {
@@ -334,7 +325,6 @@ public class Game implements Fight {
                 runAndHide2();
                 break;
         }
-
     }
 
     private void WelcomeToSmurfville() {
@@ -347,7 +337,6 @@ public class Game implements Fight {
 
     public void secondButtonAction(ActionEvent actionEvent) {
 
-
         if (player.getHealth() <= 0) {
             secondButton.setVisible(false);
             fourthButton.setVisible(false);
@@ -358,22 +347,22 @@ public class Game implements Fight {
                 case NinjaTurtle:
                     player.Excaliber = true;
                     ItemName = "Excaliber";
-                    damageAdded= "(+5 Damage)";
+                    damageAdded= " (+5 Damage)";
                     break;
                 case TROLL:
                     player.GoldenShield = true;
-                    ItemName = "GoldenShield";
-                    healthAdded= "(+35 Health)";
+                    ItemName = "Golden Shield";
+                    healthAdded= " (+35 Health)";
                     break;
                 case OGRE:
                     player.HolyKnightArmor = true;
-                    ItemName = "HolyKnightArmor";
-                    healthAdded= "(+47 Health)";
+                    ItemName = "Holy Knight Armor";
+                    healthAdded= " (+47 Health)";
                     break;
                 case ELF:
                     player.HolyKnightBoots = true;
-                    ItemName = "HolyKnightBoots";
-                    healthAdded= "(+23 Health)";
+                    ItemName = "Holy Knight Boots";
+                    healthAdded= " (+23 Health)";
                     break;
             }
             item_calc();
