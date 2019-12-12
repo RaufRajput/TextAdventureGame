@@ -29,10 +29,10 @@ public class Model {
    }
 
     public void generateMonsters() {
-        monsterList.add(new Monster(30,Race.ELF));
-        monsterList.add(new Monster(60,Race.TROLL));
-        monsterList.add(new Monster(80,Race.OGRE));
-        monsterList.add(new Monster(100,Race.NinjaTurtle));
+        monsterList.add(new Monster(43,Race.ELF));
+        monsterList.add(new Monster(78,Race.TROLL));
+        monsterList.add(new Monster(92,Race.OGRE));
+        monsterList.add(new Monster(128,Race.NinjaTurtle));
     }
 
     public List<Monster> getMonsterList() {

@@ -60,10 +60,11 @@ public class Game implements Fight {
     private String healthAdded;
     private String damageAdded;
     private boolean beAbleToRunAway = true;
-    private int notTwice1= 0;
+    private int notTwice1 = 0;
     private int notTwice2 = 0;
     private int notTwice3 = 0;
     private int notTwice4 = 0;
+    private boolean criticaldamage;
     String musicFile;
     Media sound;
     MediaPlayer mediaPlayer;
@@ -120,7 +121,7 @@ public class Game implements Fight {
 
     @Override
     public void attack() {
-        // Get random player damage from 0 - 8
+        // Get random player damage between 0 - 8
         playerDamage = getPlayerDamage();
         // Set monster damage to 0
         monsterDamage = getMonsterDamage();
@@ -161,16 +162,31 @@ public class Game implements Fight {
     }
 
     private void AttackStageTexts(int playerDamage, int monsterDamage, String playerAttackFrase, String monsterAttackFrase) {
-        // changing text on text window
-        textArea.setText(
-                // player attack
-                playerAttackFrase + playerDamage +
-                        " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + currentMonster.getMonsterHealth() +
-                        "\n\n" +
 
-                        // monster attack
-                        "The " + currentMonster.getMonsterName() +
-                        monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + player.getHealth());
+        if (criticaldamage == true) {
+            // changing text on text window
+            textArea.setText(
+                    // player attack
+                    playerAttackFrase + playerDamage +
+                            " CriticalDamage!! " + "\n The " + currentMonster.getMonsterName() + " health is " + currentMonster.getMonsterHealth() +
+                            "\n\n" +
+                            // monster attack
+                            "The " + currentMonster.getMonsterName() +
+                            monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + player.getHealth());
+            criticaldamage = false;
+        } else {
+            // changing text on text window
+            textArea.setText(
+                    // player attack
+                    playerAttackFrase + playerDamage +
+                            " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + currentMonster.getMonsterHealth() +
+                            "\n\n" +
+                            // monster attack
+                            "The " + currentMonster.getMonsterName() +
+                            monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + player.getHealth());
+        }
+
+
     }
 
     private void ChangeVisibilityForPunchOnly() {
@@ -242,12 +258,18 @@ public class Game implements Fight {
     }
 
     private int getPlayerDamage() {
-        // random damage generator for player
-        return getRandomNumberInRange(0, playerDamageHigh);
+        // Made a Criticaldamage
+        if (getRandomNumberInRange(1, 30) <= 2) {
+            criticaldamage = true;
+            return (int) (getRandomNumberInRange(4, playerDamageHigh) * (getRandomNumberInRange(2,3) + 0.5));
+        } else {
+            // random damage generator for player
+            return getRandomNumberInRange(0, playerDamageHigh);
+        }
     }
 
     private void Under40HpLightRunAwayButton() {
-        if (player.getHealth() <= 40 && beAbleToRunAway == true){
+        if (player.getHealth() <= 40 && beAbleToRunAway == true) {
             fourthButton.setVisible(true);
             fourthButton.setText("Try to run away!");
         }
@@ -337,7 +359,7 @@ public class Game implements Fight {
             fourthButton.setVisible(false);
             model.getMonsterList().clear();
             model.generateMonsters();
-            currentMonster=null;
+            currentMonster = null;
             model.setMonsterHealth(0);
             endTextPlayerDeadMethod();
             playerDamageHigh = 8;
@@ -348,22 +370,22 @@ public class Game implements Fight {
                 case NinjaTurtle:
                     player.Excaliber = true;
                     ItemName = "Excaliber";
-                    damageAdded= " (+5 Damage)";
+                    damageAdded = " (+5 Damage)";
                     break;
                 case TROLL:
                     player.GoldenShield = true;
                     ItemName = "Golden Shield";
-                    healthAdded= " (+35 Health)";
+                    healthAdded = " (+35 Health)";
                     break;
                 case OGRE:
                     player.HolyKnightArmor = true;
                     ItemName = "Holy Knight Armor";
-                    healthAdded= " (+47 Health)";
+                    healthAdded = " (+47 Health)";
                     break;
                 case ELF:
                     player.HolyKnightBoots = true;
                     ItemName = "Holy Knight Boots";
-                    healthAdded= " (+23 Health)";
+                    healthAdded = " (+23 Health)";
                     break;
             }
             item_calc();
@@ -375,7 +397,7 @@ public class Game implements Fight {
                 if (currentMonster.getRace() == Race.NinjaTurtle) {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "Cha-ching! You found " + ItemName + damageAdded);
-                }else {
+                } else {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "You picked up " + ItemName + healthAdded);
                 }
@@ -449,7 +471,7 @@ public class Game implements Fight {
                 currentMonster = null;
                 SetLowOpacityOnAllItems();
                 SetAllItemsToFalse();
-                beAbleToRunAway =true;
+                beAbleToRunAway = true;
                 playerDamageHigh = 8;
                 break;
         }
@@ -471,13 +493,13 @@ public class Game implements Fight {
             case "Try to run away!":
                 Under40HpLightRunAwayButton();
                 int random10 = getRandomNumberInRange(0, 10);
-                if (random10 <= 5){
+                if (random10 <= 5) {
                     textArea.setText("You successfully ran away!");
                     firstButton.setVisible(true);
                     secondButton.setVisible(false);
                     fourthButton.setVisible(false);
                     firstButton.setText("Enter Smurfville");
-                }else {
+                } else {
                     textArea.setText("You tripple and are not able to run away anymore! ");
                     fourthButton.setVisible(false);
                     beAbleToRunAway = false;
