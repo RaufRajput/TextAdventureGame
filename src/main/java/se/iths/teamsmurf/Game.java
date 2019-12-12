@@ -412,7 +412,7 @@ public class Game implements Fight {
         if (player.GoldenShield) {
             if (notTwice2 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(1).getHealth());
-                model.setPlayerHealth(player.getHealth() + model.getItemList().get(1).getHealth());
+
                 notTwice2++;
             }
             shield.setOpacity(1.0);
@@ -420,7 +420,6 @@ public class Game implements Fight {
         if (player.HolyKnightArmor) {
             if (notTwice3 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(2).getHealth());
-                model.setPlayerHealth(player.getHealth() + model.getItemList().get(2).getHealth());
                 notTwice3++;
             }
             armor.setOpacity(1.0);
@@ -428,9 +427,9 @@ public class Game implements Fight {
         if (player.HolyKnightBoots) {
             if (notTwice4 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(3).getHealth());
-                model.setPlayerHealth(player.getHealth() + model.getItemList().get(3).getHealth());
                 notTwice4++;
             }
+            model.setPlayerHealth(player.getHealth());
             boots.setOpacity(1.0);
         }
     }
