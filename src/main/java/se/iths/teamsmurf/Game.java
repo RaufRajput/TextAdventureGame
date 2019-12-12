@@ -63,8 +63,8 @@ public class Game implements Fight {
     private int notTwice2 = 0;
     private int notTwice3 = 0;
     private int notTwice4 = 0;
-    String musicFile ;
-    Media sound ;
+    String musicFile;
+    Media sound;
     MediaPlayer mediaPlayer;
 
 
@@ -106,7 +106,8 @@ public class Game implements Fight {
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
-        mediaPlayer.play() );
+                mediaPlayer.play());
+
     }
 
     private void SetLowOpacityOnAllItems() {
@@ -139,8 +140,21 @@ public class Game implements Fight {
         DecreasePlayerHealth(monsterDamage);
         // Decrease monster health based on player damage
         DecreaseMonsterHealth(playerDamage);
+        // make it unable to get negative health
+        NegativeHealth();
         // Combat text
         AttackStageTexts(playerDamage, monsterDamage, playerAttackFrase, MonsterAttackFrase);
+    }
+
+    private void NegativeHealth() {
+        if (player.getHealth() < 0) {
+            player.setHealth(0);
+            model.setPlayerHealth(0);
+        }
+        if (currentMonster.getMonsterHealth() < 0) {
+            currentMonster.Health(0);
+            model.setMonsterHealth(0);
+        }
     }
 
     private int getMonsterDamage() {
@@ -371,10 +385,15 @@ public class Game implements Fight {
             if (model.getMonsterListsize() == -1) {
                 endTextWinnerMethod();
             } else {
-                if (currentMonster.getRace() == Race.NinjaTurtle){
+                if (currentMonster.getRace() == Race.NinjaTurtle) {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
+<<<<<<< HEAD
                             "Cha-ching! You found " + ItemName + damageAdded);
                 }else {
+=======
+                            "You found " + ItemName + damageAdded + " test");
+                } else {
+>>>>>>> ba87ee6488f6b19b6abb3783f678ddc834fa1bc2
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "You picked up " + ItemName + healthAdded);
                 }
