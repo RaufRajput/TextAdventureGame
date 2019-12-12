@@ -401,8 +401,17 @@ public class Game implements Fight {
                 player.setHealth(100);
                 model.setPlayerHealth(100);
                 currentMonster = null;
+                SetLowOpacityOnAllItems();
+                SetAllItemsToFalse();
                 break;
         }
+    }
+
+    private void SetAllItemsToFalse() {
+        player.HolyKnightBoots = false;
+        player.HolyKnightArmor = false;
+        player.GoldenShield = false;
+        player.Excaliber = false;
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
