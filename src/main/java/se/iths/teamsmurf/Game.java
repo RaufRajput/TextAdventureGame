@@ -63,8 +63,8 @@ public class Game implements Fight {
     private int notTwice2 = 0;
     private int notTwice3 = 0;
     private int notTwice4 = 0;
-    String musicFile ;
-    Media sound ;
+    String musicFile;
+    Media sound;
     MediaPlayer mediaPlayer;
 
 
@@ -106,7 +106,7 @@ public class Game implements Fight {
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
-        mediaPlayer.play() );
+                mediaPlayer.play());
 
     }
 
@@ -141,8 +141,21 @@ public class Game implements Fight {
         DecreasePlayerHealth(monsterDamage);
         // Decrease monster health based on player damage
         DecreaseMonsterHealth(playerDamage);
+        // make it unable to get negative health
+        NegativeHealth();
         // Combat text
         AttackStageTexts(playerDamage, monsterDamage, playerAttackFrase, MonsterAttackFrase);
+    }
+
+    private void NegativeHealth() {
+        if (player.getHealth() < 0) {
+            player.setHealth(0);
+            model.setPlayerHealth(0);
+        }
+        if (currentMonster.getMonsterHealth() < 0) {
+            currentMonster.Health(0);
+            model.setMonsterHealth(0);
+        }
     }
 
     private int getMonsterDamage() {
@@ -358,22 +371,22 @@ public class Game implements Fight {
                 case NinjaTurtle:
                     player.Excaliber = true;
                     ItemName = "Excaliber";
-                    damageAdded= "(+5 Damage)";
+                    damageAdded = "(+5 Damage)";
                     break;
                 case TROLL:
                     player.GoldenShield = true;
                     ItemName = "GoldenShield";
-                    healthAdded= "(+35 Health)";
+                    healthAdded = "(+35 Health)";
                     break;
                 case OGRE:
                     player.HolyKnightArmor = true;
                     ItemName = "HolyKnightArmor";
-                    healthAdded= "(+47 Health)";
+                    healthAdded = "(+47 Health)";
                     break;
                 case ELF:
                     player.HolyKnightBoots = true;
                     ItemName = "HolyKnightBoots";
-                    healthAdded= "(+23 Health)";
+                    healthAdded = "(+23 Health)";
                     break;
             }
             item_calc();
@@ -382,10 +395,10 @@ public class Game implements Fight {
             if (model.getMonsterListsize() == -1) {
                 endTextWinnerMethod();
             } else {
-                if (currentMonster.getRace() == Race.NinjaTurtle){
+                if (currentMonster.getRace() == Race.NinjaTurtle) {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "You found " + ItemName + damageAdded + " test");
-                }else {
+                } else {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "You found " + ItemName + healthAdded);
                 }
