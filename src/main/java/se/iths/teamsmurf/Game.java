@@ -361,24 +361,6 @@ public class Game implements Fight {
                 case NinjaTurtle:
                     player.Excaliber = true;
                     ItemName = "Excaliber";
-<<<<<<< HEAD
-                    damageAdded = "(+5 Damage)";
-                    break;
-                case TROLL:
-                    player.GoldenShield = true;
-                    ItemName = "GoldenShield";
-                    healthAdded = "(+35 Health)";
-                    break;
-                case OGRE:
-                    player.HolyKnightArmor = true;
-                    ItemName = "HolyKnightArmor";
-                    healthAdded = "(+47 Health)";
-                    break;
-                case ELF:
-                    player.HolyKnightBoots = true;
-                    ItemName = "HolyKnightBoots";
-                    healthAdded = "(+23 Health)";
-=======
                     damageAdded= " (+5 Damage)";
                     break;
                 case TROLL:
@@ -395,7 +377,6 @@ public class Game implements Fight {
                     player.HolyKnightBoots = true;
                     ItemName = "Holy Knight Boots";
                     healthAdded= " (+23 Health)";
->>>>>>> adfae9586d26a65a529966f007e73a889e6ae5cd
                     break;
             }
             item_calc();
