@@ -122,7 +122,7 @@ public class Game implements Fight {
         // Pick attacking frase for monsters based on their damage
         String MonsterAttackFrase = getMonsterString(monsterDamage);
 
-        // set all buttons so only punch is showing   /////  NEEDS ABIT REWORK  //////
+        // set all buttons so only punch is showing   /////  NEEDS ABIT REWORK  ////// conflit with  " beAbleToRunLowHp(); "
         ChangeVisibilityForPunchOnly();
 
         // Decrease player health based on monster damage
