@@ -35,6 +35,10 @@ public class Model {
         monsterList.add(new Monster(100,Race.NinjaTurtle));
     }
 
+    public List<Monster> getMonsterList() {
+        return monsterList;
+    }
+
     public void createItems() {
         itemList.add(new Item("Excaliber", 5, 0));
         itemList.add(new Item("GoldenShield", 0, 35));
