@@ -54,12 +54,13 @@ public class Game implements Fight {
     private Image bildF;
     private Image bildM;
     private int playerDamage;
+    private int playerDamageHigh = 8;
     private int monsterDamage;
     private String ItemName;
     private String healthAdded;
     private String damageAdded;
     private boolean beAbleToRunAway = true;
-
+    private int notTwice1= 0;
     private int notTwice2 = 0;
     private int notTwice3 = 0;
     private int notTwice4 = 0;
@@ -93,7 +94,7 @@ public class Game implements Fight {
         sound = new Media(new File(musicFile).toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
-        player = new Player(60);
+        player = new Player(100);
         model.setPlayerHealth(player.getHealth());
         firstButton.setText("start");
         secondButton.setVisible(false);
@@ -125,8 +126,6 @@ public class Game implements Fight {
         monsterDamage = getMonsterDamage();
         // Get monster damage based on the current monsters race
         monsterDamage = getMonsterDamage(monsterDamage);
-        // Add +5 damage when excaliber is active
-        playerDamage = getPlayerDamageWhenExcaliberIsActive(playerDamage);
         // pick attacking frase for player based on your random damage
         String playerAttackFrase = getString(playerDamage);
         // Pick attacking frase for monsters based on their damage
@@ -141,12 +140,14 @@ public class Game implements Fight {
         NegativeHealth();
         // Combat text
         AttackStageTexts(playerDamage, monsterDamage, playerAttackFrase, MonsterAttackFrase);
+
     }
 
     private void NegativeHealth() {
         if (player.getHealth() < 0) {
             player.setHealth(0);
             model.setPlayerHealth(0);
+            fourthButton.setVisible(false);
         }
         if (currentMonster.getMonsterHealth() < 0) {
             currentMonster.Health(0);
@@ -164,21 +165,12 @@ public class Game implements Fight {
         textArea.setText(
                 // player attack
                 playerAttackFrase + playerDamage +
-                        " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + (currentMonster.getMonsterHealth()) +
+                        " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + currentMonster.getMonsterHealth() +
                         "\n\n" +
 
                         // monster attack
                         "The " + currentMonster.getMonsterName() +
-                        monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + (player.getHealth()));
-    }
-
-    private int getPlayerDamageWhenExcaliberIsActive(int playerDamage) {
-        // item calc
-        if (player.Excaliber) {
-            playerDamage = playerDamage + model.getItemList().get(0).getDamage();
-            sword.setOpacity(1.0);
-        }
-        return playerDamage;
+                        monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + player.getHealth());
     }
 
     private void ChangeVisibilityForPunchOnly() {
@@ -251,7 +243,7 @@ public class Game implements Fight {
 
     private int getPlayerDamage() {
         // random damage generator for player
-        return getRandomNumberInRange(0, 8);
+        return getRandomNumberInRange(0, playerDamageHigh);
     }
 
     private void Under40HpLightRunAwayButton() {
@@ -348,7 +340,7 @@ public class Game implements Fight {
             currentMonster=null;
             model.setMonsterHealth(0);
             endTextPlayerDeadMethod();
-
+            playerDamageHigh = 8;
         }
 
         if (currentMonster.getMonsterHealth() <= 0) {
@@ -392,7 +384,7 @@ public class Game implements Fight {
                 firstButton.setVisible(true);
                 secondButton.setVisible(false);
                 thirdButton.setVisible(false);
-               fourthButton.setVisible(false);
+                fourthButton.setVisible(false);
                 beAbleToRunAway = true;
             }
         } else {
@@ -403,7 +395,11 @@ public class Game implements Fight {
     private void item_calc() {
         // item calc
         if (player.Excaliber) {
-            sword.setOpacity(1.0);
+            if (notTwice1 < 1) {
+                sword.setOpacity(1.0);
+                playerDamageHigh = playerDamageHigh + 5;
+                notTwice1++;
+            }
         }
         if (player.GoldenShield) {
             if (notTwice2 < 1) {
@@ -424,9 +420,9 @@ public class Game implements Fight {
                 player.setHealth(player.getHealth() + model.getItemList().get(3).getHealth());
                 notTwice4++;
             }
-            model.setPlayerHealth(player.getHealth());
             boots.setOpacity(1.0);
         }
+        model.setPlayerHealth(player.getHealth());
     }
 
     public void thirdButtonAction(ActionEvent actionEvent) {
@@ -454,6 +450,7 @@ public class Game implements Fight {
                 SetLowOpacityOnAllItems();
                 SetAllItemsToFalse();
                 beAbleToRunAway =true;
+                playerDamageHigh = 8;
                 break;
         }
     }
