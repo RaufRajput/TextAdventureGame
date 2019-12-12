@@ -387,13 +387,8 @@ public class Game implements Fight {
             } else {
                 if (currentMonster.getRace() == Race.NinjaTurtle) {
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
-<<<<<<< HEAD
                             "Cha-ching! You found " + ItemName + damageAdded);
                 }else {
-=======
-                            "You found " + ItemName + damageAdded + " test");
-                } else {
->>>>>>> ba87ee6488f6b19b6abb3783f678ddc834fa1bc2
                     textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "You picked up " + ItemName + healthAdded);
                 }
