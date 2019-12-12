@@ -119,11 +119,8 @@ public class Game implements Fight {
         String playerAttackFrase = getString(playerDamage);
         // Pick attacking frase for monsters based on their damage
         String MonsterAttackFrase = getMonsterString(monsterDamage);
-
-
         // Be able to run away when your hp is low during a fight
         beAbleToRunLowHp();
-
         // Decrease player health based on monster damage
         DecreasePlayerHealth(monsterDamage);
         // Decrease monster health based on player damage
@@ -144,6 +141,7 @@ public class Game implements Fight {
                 playerAttackFrase + playerDamage +
                         " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + (currentMonster.getMonsterHealth()) +
                         "\n\n" +
+
                         // monster attack
                         "The " + currentMonster.getMonsterName() +
                         monsterAttackFrase + monsterDamage + " in damage. " + "\n Your current health is " + (player.getHealth()));
@@ -289,11 +287,7 @@ public class Game implements Fight {
                 firstButton.setText("Continue");
                 break;
             case "Continue":
-                textArea.setText("Welcome to Smurfville. " +
-                        "\nThis is a peaceful village where you live with thousands of other smurfs. " +
-                        "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
-                        "\nYou are the chosen one to protect your village when that occurs.");
-                firstButton.setText("Enter Smurfville");
+                WelcomeToSmurfville();
                 break;
             case "Enter Smurfville":
                 textArea.setText(model.getScene(getRandomNumberInRange(0, 3)));
@@ -325,6 +319,14 @@ public class Game implements Fight {
                 break;
         }
 
+    }
+
+    private void WelcomeToSmurfville() {
+        textArea.setText("Welcome to Smurfville. " +
+                "\nThis is a peaceful village where you live with thousands of other smurfs. " +
+                "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
+                "\nYou are the chosen one to protect your village when that occurs.");
+        firstButton.setText("Enter Smurfville");
     }
 
     public void secondButtonAction(ActionEvent actionEvent) {
@@ -460,6 +462,10 @@ public class Game implements Fight {
         firstButton.setVisible(true);
         thirdButton.setVisible(true);
         textArea.setText("The honor is yours!" + "\nYou fought and fell with a dignity. R.I.P.");
+        FirstButtonThirdButtonChangeText();
+    }
+
+    private void FirstButtonThirdButtonChangeText() {
         firstButton.setText("Good Bye");
         thirdButton.setText("Try Again");
     }
@@ -468,8 +474,7 @@ public class Game implements Fight {
         model.setPlayerHealth(0);
         textArea.setText("You have betrayed your fellows." + "\nThe monster is still alive.");
         thirdButton.setVisible(true);
-        firstButton.setText("Good Bye");
-        thirdButton.setText("Try Again");
+        FirstButtonThirdButtonChangeText();
     }
 
     public void endTextWinnerMethod() {
@@ -478,7 +483,6 @@ public class Game implements Fight {
         thirdButton.setVisible(true);
         secondButton.setVisible(false);
         fourthButton.setVisible(false);
-        firstButton.setText("Good Bye");
-        thirdButton.setText("Try Again");
+        FirstButtonThirdButtonChangeText();
     }
 }
