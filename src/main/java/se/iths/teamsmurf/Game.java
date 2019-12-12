@@ -1,6 +1,7 @@
 package se.iths.teamsmurf;
 
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -9,9 +10,12 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.Random;
 
 public class Game implements Fight {
@@ -59,6 +63,9 @@ public class Game implements Fight {
     private int notTwice2 = 0;
     private int notTwice3 = 0;
     private int notTwice4 = 0;
+    String musicFile ;
+    Media sound ;
+    MediaPlayer mediaPlayer;
 
 
     //<editor-fold desc="Singelton Constructor">
@@ -82,8 +89,9 @@ public class Game implements Fight {
     public void initialize() {
         bildF = new Image(String.valueOf(getClass().getResource("/IMG_8225.jpg")));
         bildM = new Image(String.valueOf(getClass().getResource("/Arsto.jpg")));
-
-
+        musicFile = "haha.mp3";
+        sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
         model.setPlayerHealth(player.getHealth());
@@ -97,6 +105,9 @@ public class Game implements Fight {
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         SetLowOpacityOnAllItems();
+        Platform.runLater(() ->
+        mediaPlayer.play() );
+
     }
 
     private void SetLowOpacityOnAllItems() {
@@ -204,7 +215,7 @@ public class Game implements Fight {
         } else if (playerDamage < 4 && playerDamage > 0) {
             playerAttackFrase = "You spanked the monster and did ";
         } else if (playerDamage >= 4 && playerDamage < 10) {
-            playerAttackFrase = "You punched him REALY hard for ";
+            playerAttackFrase = "You punched him REALLY hard for ";
         } else {
             playerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
         }
