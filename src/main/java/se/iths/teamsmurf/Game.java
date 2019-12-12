@@ -354,6 +354,10 @@ public class Game implements Fight {
         if (player.getHealth() <= 0) {
             secondButton.setVisible(false);
             fourthButton.setVisible(false);
+            model.getMonsterList().clear();
+            model.generateMonsters();
+            currentMonster=null;
+            model.setMonsterHealth(0);
             endTextPlayerDeadMethod();
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
@@ -412,7 +416,6 @@ public class Game implements Fight {
         if (player.GoldenShield) {
             if (notTwice2 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(1).getHealth());
-
                 notTwice2++;
             }
             shield.setOpacity(1.0);
