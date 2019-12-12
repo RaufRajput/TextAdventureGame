@@ -52,6 +52,9 @@ public class Game implements Fight {
     private Image bildM;
     private int playerDamage;
     private int monsterDamage;
+    private String ItemName;
+    private String healthAdded;
+    private String damageAdded;
 
     private int notTwice2 = 0;
     private int notTwice3 = 0;
@@ -333,35 +336,48 @@ public class Game implements Fight {
 
     public void secondButtonAction(ActionEvent actionEvent) {
 
+
         if (player.getHealth() <= 0) {
             secondButton.setVisible(false);
             fourthButton.setVisible(false);
             endTextPlayerDeadMethod();
 
         } else if (currentMonster.getMonsterHealth() <= 0) {
-
             switch (currentMonster.getRace()) {
                 case NinjaTurtle:
                     player.Excaliber = true;
+                    ItemName = "Excaliber";
+                    damageAdded= "(+5 Damage)";
                     break;
                 case TROLL:
                     player.GoldenShield = true;
+                    ItemName = "GoldenShield";
+                    healthAdded= "(+35 Health)";
                     break;
                 case OGRE:
                     player.HolyKnightArmor = true;
+                    ItemName = "HolyKnightArmor";
+                    healthAdded= "(+47 Health)";
                     break;
                 case ELF:
                     player.HolyKnightBoots = true;
+                    ItemName = "HolyKnightBoots";
+                    healthAdded= "(+23 Health)";
                     break;
             }
             item_calc();
+
             model.removeMonsterfromlist(currentMonster);
             if (model.getMonsterListsize() == -1) {
                 endTextWinnerMethod();
             } else {
-                textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName());
-
-                // make if statement with what items u get based on monstertype
+                if (currentMonster.getRace() == Race.NinjaTurtle){
+                    textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
+                            "You found " + ItemName + damageAdded + " test");
+                }else {
+                    textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
+                            "You found " + ItemName + healthAdded);
+                }
 
                 firstButton.setText("Enter Smurfville");
                 firstButton.setVisible(true);
@@ -382,6 +398,7 @@ public class Game implements Fight {
         if (player.GoldenShield) {
             if (notTwice2 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(1).getHealth());
+                model.setPlayerHealth(player.getHealth() + model.getItemList().get(1).getHealth());
                 notTwice2++;
             }
             shield.setOpacity(1.0);
@@ -389,6 +406,7 @@ public class Game implements Fight {
         if (player.HolyKnightArmor) {
             if (notTwice3 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(2).getHealth());
+                model.setPlayerHealth(player.getHealth() + model.getItemList().get(2).getHealth());
                 notTwice3++;
             }
             armor.setOpacity(1.0);
@@ -396,6 +414,7 @@ public class Game implements Fight {
         if (player.HolyKnightBoots) {
             if (notTwice4 < 1) {
                 player.setHealth(player.getHealth() + model.getItemList().get(3).getHealth());
+                model.setPlayerHealth(player.getHealth() + model.getItemList().get(3).getHealth());
                 notTwice4++;
             }
             boots.setOpacity(1.0);
