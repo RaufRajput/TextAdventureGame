@@ -144,19 +144,19 @@
                <children>
                   <ImageView fx:id="sword" fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="https://imgur.com/4egx18K.png" />
+                        <Image url="@swordMedText.jpg" />
                      </image></ImageView>
                   <ImageView fx:id="armor" fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
-                        <Image url="https://imgur.com/3l792K8.png" />
+                        <Image url="@armorMedText.jpg" />
                      </image></ImageView>
                   <ImageView fx:id="boots" fitHeight="78.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                      <image>
-                        <Image url="https://imgur.com/pfyrYWS.png" />
+                        <Image url="@bootsMedText.jpg" />
                      </image></ImageView>
                   <ImageView fx:id="shield" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                      <image>
-                        <Image url="https://imgur.com/OsdbpLp.png" />
+                        <Image url="@shieldMedText.jpg" />
                      </image>
                   </ImageView>
                </children>
