@@ -201,7 +201,7 @@ public class Game implements Fight {
         } else if (playerDamage < 4 && playerDamage > 0) {
             playerAttackFrase = "You spanked the monster and did ";
         } else if (playerDamage >= 4 && playerDamage < 10) {
-            playerAttackFrase = "You punched him REALY hard for ";
+            playerAttackFrase = "You punched him REALLY hard for ";
         } else {
             playerAttackFrase = "You gave dat MODAFOKA a nice uppercut! ";
         }
