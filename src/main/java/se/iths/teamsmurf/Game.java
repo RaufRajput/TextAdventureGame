@@ -117,9 +117,6 @@ public class Game implements Fight {
         shield.setOpacity(0.3);
     }
 
-    public void init(Scene scene) {
-    }
-
     @Override
     public void attack() {
         // Get random player damage from 0 - 8
