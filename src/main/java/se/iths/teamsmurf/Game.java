@@ -50,6 +50,8 @@ public class Game implements Fight {
     private Player player;
     private Image bildF;
     private Image bildM;
+    private int playerDamage;
+    private int monsterDamage;
 
     private int notTwice2 = 0;
     private int notTwice3 = 0;
@@ -108,9 +110,9 @@ public class Game implements Fight {
     @Override
     public void attack() {
         // Get random player damage from 0 - 8
-        int playerDamage = getPlayerDamage();
+        playerDamage = getPlayerDamage();
         // Set monster damage to 0
-        int monsterDamage = getMonsterDamage();
+        monsterDamage = getMonsterDamage();
         // Get monster damage based on the current monsters race
         monsterDamage = getMonsterDamage(monsterDamage);
         // Add +5 damage when excaliber is active
@@ -239,7 +241,7 @@ public class Game implements Fight {
                 fourthButton.setVisible(false);
                 textArea.setText("You failed to run away");
             } else {
-                textArea.setText("You successfully runned away from the monster");
+                textArea.setText("You successfully ran away");
 
             }
         }
@@ -413,6 +415,8 @@ public class Game implements Fight {
                 runAndHide();
                 break;
             case "Try Again":
+                model.getMonsterList().clear();
+                System.out.println(model.getMonsterListsize());
                 model.generateMonsters();
                 thirdButton.setVisible(false);
                 firstButton.setText("start");
