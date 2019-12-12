@@ -107,8 +107,6 @@ public class Game implements Fight {
 
     @Override
     public void attack() {
-        // Be able to run away when your hp is low during a fight
-        beAbleToRunLowHp();
         // Get random player damage from 0 - 8
         int playerDamage = getPlayerDamage();
         // Set monster damage to 0
@@ -122,8 +120,9 @@ public class Game implements Fight {
         // Pick attacking frase for monsters based on their damage
         String MonsterAttackFrase = getMonsterString(monsterDamage);
 
-        // set all buttons so only punch is showing   /////  NEEDS ABIT REWORK  ////// conflit with  " beAbleToRunLowHp(); "
-        ChangeVisibilityForPunchOnly();
+
+        // Be able to run away when your hp is low during a fight
+        beAbleToRunLowHp();
 
         // Decrease player health based on monster damage
         DecreasePlayerHealth(monsterDamage);
@@ -162,9 +161,9 @@ public class Game implements Fight {
     private void ChangeVisibilityForPunchOnly() {
         // setting buttons visibility to true or false
         firstButton.setVisible(false);
-        thirdButton.setVisible(false);
         secondButton.setVisible(true);
         secondButton.setText("Punch");
+        thirdButton.setVisible(false);
     }
 
     private void DecreaseMonsterHealth(int playerDamage) {
@@ -312,6 +311,8 @@ public class Game implements Fight {
                 thirdButton.setText("Run and hide!");
                 break;
             case "ATTACK!":
+                // set all buttons so only punch is showing
+                ChangeVisibilityForPunchOnly();
                 attack();
                 break;
             case "Good Bye":
