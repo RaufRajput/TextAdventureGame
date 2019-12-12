@@ -107,16 +107,29 @@ public class Game implements Fight {
 
     @Override
     public void attack() {
+        // Be able to run away when your hp is low during a fight
         beAbleToRunLowHp();
+        // Get random player damage from 0 - 8
         int playerDamage = getPlayerDamage();
+        // Set monster damage to 0
         int monsterDamage = getMonsterDamage();
+        // Get monster damage based on the current monsters race
         monsterDamage = getMonsterDamage(monsterDamage);
+        // Add +5 damage when excaliber is active
         playerDamage = getPlayerDamageWhenExcaliberIsActive(playerDamage);
+        // pick attacking frase for player based on your random damage
         String playerAttackFrase = getString(playerDamage);
+        // Pick attacking frase for monsters based on their damage
         String MonsterAttackFrase = getMonsterString(monsterDamage);
+
+        // set all buttons so only punch is showing   /////  NEEDS ABIT REWORK  //////
         ChangeVisibilityForPunchOnly();
+
+        // Decrease player health based on monster damage
         DecreasePlayerHealth(monsterDamage);
+        // Decrease monster health based on player damage
         DecreaseMonsterHealth(playerDamage);
+        // Combat text
         AttackStageTexts(playerDamage, monsterDamage, playerAttackFrase, MonsterAttackFrase);
     }
 
