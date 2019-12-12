@@ -4,7 +4,6 @@ package se.iths.teamsmurf;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
@@ -59,6 +58,7 @@ public class Game implements Fight {
     private String ItemName;
     private String healthAdded;
     private String damageAdded;
+    private boolean beAbleToRunAway = true;
 
     private int notTwice2 = 0;
     private int notTwice3 = 0;
@@ -93,7 +93,7 @@ public class Game implements Fight {
         sound = new Media(new File(musicFile).toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
-        player = new Player(100);
+        player = new Player(60);
         model.setPlayerHealth(player.getHealth());
         firstButton.setText("start");
         secondButton.setVisible(false);
@@ -132,7 +132,7 @@ public class Game implements Fight {
         // Pick attacking frase for monsters based on their damage
         String MonsterAttackFrase = getMonsterString(monsterDamage);
         // Be able to run away when your hp is low during a fight
-        beAbleToRunLowHp();
+        Under40HpLightRunAwayButton();
         // Decrease player health based on monster damage
         DecreasePlayerHealth(monsterDamage);
         // Decrease monster health based on player damage
@@ -254,18 +254,10 @@ public class Game implements Fight {
         return getRandomNumberInRange(0, 8);
     }
 
-    private void beAbleToRunLowHp() {
-        int random50 = getRandomNumberInRange(0, 10);
-
-        if (player.getHealth() <= 25) {
+    private void Under40HpLightRunAwayButton() {
+        if (player.getHealth() <= 40 && beAbleToRunAway == true){
             fourthButton.setVisible(true);
             fourthButton.setText("Try to run away!");
-            if (random50 <= 2) {
-                fourthButton.setVisible(false);
-                textArea.setText("You failed to run away");
-            } else {
-                textArea.setText("You successfully ran away");
-            }
         }
     }
 
@@ -357,7 +349,9 @@ public class Game implements Fight {
             model.setMonsterHealth(0);
             endTextPlayerDeadMethod();
 
-        } else if (currentMonster.getMonsterHealth() <= 0) {
+        }
+
+        if (currentMonster.getMonsterHealth() <= 0) {
             switch (currentMonster.getRace()) {
                 case NinjaTurtle:
                     player.Excaliber = true;
@@ -398,7 +392,8 @@ public class Game implements Fight {
                 firstButton.setVisible(true);
                 secondButton.setVisible(false);
                 thirdButton.setVisible(false);
-                fourthButton.setVisible(false);
+               fourthButton.setVisible(false);
+                beAbleToRunAway = true;
             }
         } else {
             attack();
@@ -458,6 +453,7 @@ public class Game implements Fight {
                 currentMonster = null;
                 SetLowOpacityOnAllItems();
                 SetAllItemsToFalse();
+                beAbleToRunAway =true;
                 break;
         }
     }
@@ -470,13 +466,25 @@ public class Game implements Fight {
     }
 
     public void fourthButtonAction(ActionEvent actionEvent) {
+        tryToRunAwayCalculation();
+    }
+
+    private void tryToRunAwayCalculation() {
         switch (fourthButton.getText()) {
             case "Try to run away!":
-                textArea.setText("You successfully ran away!");
-                firstButton.setVisible(true);
-                secondButton.setVisible(false);
-                fourthButton.setVisible(false);
-                firstButton.setText("Enter Smurfville");
+                Under40HpLightRunAwayButton();
+                int random10 = getRandomNumberInRange(0, 10);
+                if (random10 <= 5){
+                    textArea.setText("You successfully ran away!");
+                    firstButton.setVisible(true);
+                    secondButton.setVisible(false);
+                    fourthButton.setVisible(false);
+                    firstButton.setText("Enter Smurfville");
+                }else {
+                    textArea.setText("You tripple and are not able to run away anymore! ");
+                    fourthButton.setVisible(false);
+                    beAbleToRunAway = false;
+                }
                 break;
         }
     }
@@ -523,5 +531,6 @@ public class Game implements Fight {
         secondButton.setVisible(false);
         fourthButton.setVisible(false);
         FirstButtonThirdButtonChangeText();
+        beAbleToRunAway = true;
     }
 }
