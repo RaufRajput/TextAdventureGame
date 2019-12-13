@@ -32,7 +32,7 @@ public class Model {
         monsterList.add(new Monster(43,Race.ELF));
         monsterList.add(new Monster(78,Race.TROLL));
         monsterList.add(new Monster(92,Race.OGRE));
-        monsterList.add(new Monster(128,Race.NinjaTurtle));
+        monsterList.add(new Monster(100,Race.NinjaTurtle));
     }
 
     public List<Monster> getMonsterList() {

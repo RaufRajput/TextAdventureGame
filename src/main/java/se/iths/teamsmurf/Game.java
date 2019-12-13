@@ -242,16 +242,16 @@ public class Game implements Fight {
     private int getMonsterDamage(int monsterDamage) {
         switch (currentMonster.getRace()) {
             case TROLL:
-                monsterDamage = getRandomNumberInRange(0, 7);
-                break;
-            case ELF:
                 monsterDamage = getRandomNumberInRange(0, 6);
                 break;
-            case NinjaTurtle:
+            case ELF:
                 monsterDamage = getRandomNumberInRange(0, 5);
                 break;
+            case NinjaTurtle:
+                monsterDamage = getRandomNumberInRange(0, 4);
+                break;
             case OGRE:
-                monsterDamage = getRandomNumberInRange(0, 8);
+                monsterDamage = getRandomNumberInRange(0, 7);
                 break;
         }
         return monsterDamage;
@@ -261,7 +261,7 @@ public class Game implements Fight {
         // Made a Criticaldamage
         if (getRandomNumberInRange(1, 30) <= 2) {
             criticaldamage = true;
-            return (int) (getRandomNumberInRange(4, playerDamageHigh) * (getRandomNumberInRange(2,3) + 0.5));
+            return (int) (getRandomNumberInRange(4, playerDamageHigh) * (getRandomNumberInRange(2,4) + 0.5));
         } else {
             // random damage generator for player
             return getRandomNumberInRange(0, playerDamageHigh);
