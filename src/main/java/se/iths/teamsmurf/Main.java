@@ -4,7 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.stage.Stage;
+
+
 
 public class Main extends Application {
     private Model model;
@@ -20,9 +23,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/file.fxml"));
-        model = Model.getInstance();
+       FXMLLoader loader = new FXMLLoader();
+       loader.setLocation(getClass().getResource("/file.fxml"));
+       model = Model.getInstance();
        loader.setControllerFactory(param -> Game.getInstance(model));
        Parent root = loader.load();
 
@@ -32,9 +35,6 @@ public class Main extends Application {
         primaryStage.setTitle("Monster");
         primaryStage.setScene(new Scene (root));
         primaryStage.setResizable(false);
-        controller.init (primaryStage.getScene ());
         primaryStage.show();
     }
 }
-//TODO Göra om Controller till Singelton  (fila på Lösning...)
-//TODO Behålla se.iths.teamsmurf.Model som Singelton?

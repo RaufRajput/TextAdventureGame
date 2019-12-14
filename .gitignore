@@ -11,6 +11,7 @@ buildNumber.properties
 .mvn/timing.properties
 src/main/resources/META-INF/persistence.xml
 *.sh
+#*.mp3
 
 # compiled output
 /dist
