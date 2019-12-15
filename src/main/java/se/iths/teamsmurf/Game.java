@@ -53,6 +53,8 @@ public class Game implements Fight {
     private Player player;
     private Image bildF;
     private Image bildM;
+    private Image ripyou;
+    private Image heja;
     private int playerDamage;
     private int playerDamageHigh = 8;
     private int monsterDamage;
@@ -91,6 +93,8 @@ public class Game implements Fight {
     public void initialize() {
         bildF = new Image(String.valueOf(getClass().getResource("/IMG_8225.jpg")));
         bildM = new Image(String.valueOf(getClass().getResource("/Arsto.jpg")));
+        ripyou = new Image(String.valueOf(getClass().getResource("/ripyou.jpg")));
+        heja = new Image(String.valueOf(getClass().getResource("/heja.jpg")));
         musicFile = "haha.mp3";
         sound = new Media(new File(musicFile).toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
@@ -150,6 +154,7 @@ public class Game implements Fight {
             player.setHealth(0);
             model.setPlayerHealth(0);
             fourthButton.setVisible(false);
+            playerAvatar.setImage(ripyou);
         }
         if (currentMonster.getMonsterHealth() < 0) {
             currentMonster.Health(0);
@@ -552,5 +557,6 @@ public class Game implements Fight {
         fourthButton.setVisible(false);
         FirstButtonThirdButtonChangeText();
         beAbleToRunAway = true;
+        playerAvatar.setImage(heja);
     }
 }
