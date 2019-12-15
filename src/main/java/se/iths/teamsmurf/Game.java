@@ -94,7 +94,7 @@ public class Game implements Fight {
         musicFile = "haha.mp3";
         sound = new Media(new File(musicFile).toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
-        textArea.setText("Click start to play Monster Punch!!!!!!!!!");
+        model.setTextArea("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         model.setPlayerHealth(player.getHealth());
@@ -107,6 +107,7 @@ public class Game implements Fight {
         model.setMonsterHealth(0);
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
+        textArea.textProperty().bindBidirectional(model.textAreaProperty());
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
                 mediaPlayer.play());
@@ -165,7 +166,7 @@ public class Game implements Fight {
 
         if (criticaldamage == true) {
             // changing text on text window
-            textArea.setText(
+            model.setTextArea(
                     // player attack
                     playerAttackFrase + playerDamage +
                             " CriticalDamage!! " + "\n The " + currentMonster.getMonsterName() + " health is " + currentMonster.getMonsterHealth() +
@@ -176,7 +177,7 @@ public class Game implements Fight {
             criticaldamage = false;
         } else {
             // changing text on text window
-            textArea.setText(
+            model.setTextArea(
                     // player attack
                     playerAttackFrase + playerDamage +
                             " damage!!!! " + "\n The " + currentMonster.getMonsterName() + " health is " + currentMonster.getMonsterHealth() +
@@ -276,7 +277,7 @@ public class Game implements Fight {
     }
 
     public void runAndHide() {
-        textArea.setText("You choose to run and hide!");
+        model.setTextArea("You choose to run and hide!");
         thirdButton.setVisible(false);
         secondButton.setVisible(false);
         firstButton.setText("Next");
@@ -284,10 +285,10 @@ public class Game implements Fight {
 
     public void runAndHide2() {
         if (randomDouble() >= 0.8) {
-            textArea.setText("You failed to hide");
+            model.setTextArea("You failed to hide");
             endTextMethodAfterRun();
         } else {
-            textArea.setText("You managed to hide!");
+            model.setTextArea("You managed to hide!");
             firstButton.setText("Enter Smurfville");
         }
     }
@@ -306,7 +307,7 @@ public class Game implements Fight {
             case "Lady Smurf":
                 player.setGender(Gender.FEMALE);
                 playerAvatar.setImage(bildF);
-                textArea.setText("You have chosen Lady Smurf");
+                model.setTextArea("You have chosen Lady Smurf");
                 thirdButton.setVisible(false);
                 firstButton.setText("Continue");
                 break;
@@ -314,7 +315,7 @@ public class Game implements Fight {
                 WelcomeToSmurfville();
                 break;
             case "Enter Smurfville":
-                textArea.setText(model.getScene(getRandomNumberInRange(0, 3)));
+                model.setTextArea(model.getScene(getRandomNumberInRange(0, 3)));
                 firstButton.setText("Show More");
                 break;
             case "Show More":
@@ -323,7 +324,7 @@ public class Game implements Fight {
                 } else {
                     currentMonster = model.getMonster(getRandomNumberInRange(0, model.getMonsterListsize()));
                 }
-                textArea.setText(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0, 3)));
+                model.setTextArea(currentMonster.getMonsterName() + model.getMonsterAppearance(getRandomNumberInRange(0, 3)));
                 firstButton.setText("ATTACK!");
                 thirdButton.setVisible(true);
                 thirdButton.setText("Run and hide!");
@@ -345,7 +346,7 @@ public class Game implements Fight {
     }
 
     private void WelcomeToSmurfville() {
-        textArea.setText("Welcome to Smurfville. " +
+        model.setTextArea("Welcome to Smurfville. " +
                 "\nThis is a peaceful village where you live with thousands of other smurfs. " +
                 "\nTime to time evil hungry monsters can come from the outside of the dark woods. " +
                 "\nYou are the chosen one to protect your village when that occurs.");
@@ -395,10 +396,10 @@ public class Game implements Fight {
                 endTextWinnerMethod();
             } else {
                 if (currentMonster.getRace() == Race.NinjaTurtle) {
-                    textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
+                    model.setTextArea("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "Cha-ching! You found " + ItemName + damageAdded);
                 } else {
-                    textArea.setText("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
+                    model.setTextArea("Congratulations! You have slain the " + currentMonster.getMonsterName() + "\n\n" +
                             "You picked up " + ItemName + healthAdded);
                 }
 
@@ -452,7 +453,7 @@ public class Game implements Fight {
             case "Boy Smurf":
                 player.setGender(Gender.MALE);
                 playerAvatar.setImage(bildM);
-                textArea.setText("You have chosen Boy Smurf");
+                model.setTextArea("You have chosen Boy Smurf");
                 thirdButton.setVisible(false);
                 firstButton.setText("Continue");
                 break;
@@ -465,7 +466,7 @@ public class Game implements Fight {
                 model.generateMonsters();
                 thirdButton.setVisible(false);
                 firstButton.setText("start");
-                textArea.setText("Click start to play Monster Punch!!!!!!!!!");
+                model.setTextArea("Click start to play Monster Punch!!!!!!!!!");
                 player.setHealth(100);
                 model.setPlayerHealth(100);
                 currentMonster = null;
@@ -494,13 +495,13 @@ public class Game implements Fight {
                 Under40HpLightRunAwayButton();
                 int random10 = getRandomNumberInRange(0, 10);
                 if (random10 <= 5) {
-                    textArea.setText("You successfully ran away!");
+                    model.setTextArea("You successfully ran away!");
                     firstButton.setVisible(true);
                     secondButton.setVisible(false);
                     fourthButton.setVisible(false);
                     firstButton.setText("Enter Smurfville");
                 } else {
-                    textArea.setText("You tripple and are not able to run away anymore! ");
+                    model.setTextArea("You tripple and are not able to run away anymore! ");
                     fourthButton.setVisible(false);
                     beAbleToRunAway = false;
                 }
@@ -509,7 +510,7 @@ public class Game implements Fight {
     }
 
     public void createNewPlayer() {
-        textArea.setText("Welcome to your Monster punch Adventure." + "\nSelect desired gender with the buttons below.");
+        model.setTextArea("Welcome to your Monster punch Adventure." + "\nSelect desired gender with the buttons below.");
         firstButton.setText("Lady Smurf");
         thirdButton.setText("Boy Smurf");
     }
@@ -527,7 +528,7 @@ public class Game implements Fight {
     public void endTextPlayerDeadMethod() {
         firstButton.setVisible(true);
         thirdButton.setVisible(true);
-        textArea.setText("The honor is yours!" + "\nYou fought and fell with a dignity. R.I.P.");
+        model.setTextArea("The honor is yours!" + "\nYou fought and fell with a dignity. R.I.P.");
         FirstButtonThirdButtonChangeText();
     }
 
@@ -538,13 +539,13 @@ public class Game implements Fight {
 
     public void endTextMethodAfterRun() {
         model.setPlayerHealth(0);
-        textArea.setText("You have betrayed your fellows." + "\nThe monster is still alive.");
+        model.setTextArea("You have betrayed your fellows." + "\nThe monster is still alive.");
         thirdButton.setVisible(true);
         FirstButtonThirdButtonChangeText();
     }
 
     public void endTextWinnerMethod() {
-        textArea.setText("Congratulations! You are the hero!");
+        model.setTextArea("Congratulations! You are the hero!");
         firstButton.setVisible(true);
         thirdButton.setVisible(true);
         secondButton.setVisible(false);

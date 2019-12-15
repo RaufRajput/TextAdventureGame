@@ -1,6 +1,7 @@
 package se.iths.teamsmurf;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ public class Model {
     private static Model instance = null;
     private SimpleIntegerProperty playerHealth = new  SimpleIntegerProperty();
     private SimpleIntegerProperty monsterHealth = new  SimpleIntegerProperty();
+    private SimpleStringProperty TextArea = new SimpleStringProperty();
     private List<Monster> monsterList =new ArrayList<>();
     private List<String> monsterAppearanceList = new ArrayList<>();
     private List<String> sceneList = new ArrayList<>();
@@ -34,6 +36,20 @@ public class Model {
         monsterList.add(new Monster(92,Race.OGRE));
         monsterList.add(new Monster(100,Race.NinjaTurtle));
     }
+
+    public String getTextArea() {
+        return TextArea.get();
+    }
+
+    public SimpleStringProperty textAreaProperty() {
+        return TextArea;
+    }
+
+    public void setTextArea(String textArea) {
+        this.TextArea.set(textArea);
+    }
+
+
 
     public List<Monster> getMonsterList() {
         return monsterList;
