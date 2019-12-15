@@ -96,6 +96,7 @@ public class Game implements Fight {
         mediaPlayer = new MediaPlayer(sound);
         textArea.setText("Click start to play Monster Punch!!!!!!!!!");
         player = new Player(100);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         model.setPlayerHealth(player.getHealth());
         firstButton.setText("start");
         secondButton.setVisible(false);
@@ -109,7 +110,6 @@ public class Game implements Fight {
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
                 mediaPlayer.play());
-
     }
 
     private void SetLowOpacityOnAllItems() {
