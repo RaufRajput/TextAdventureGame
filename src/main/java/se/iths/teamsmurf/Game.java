@@ -53,6 +53,8 @@ public class Game implements Fight {
     private Player player;
     private Image bildF;
     private Image bildM;
+    private Image ripyou;
+    private Image heja;
     private int playerDamage;
     private int playerDamageHigh = 8;
     private int monsterDamage;
@@ -91,6 +93,8 @@ public class Game implements Fight {
     public void initialize() {
         bildF = new Image(String.valueOf(getClass().getResource("/IMG_8225.jpg")));
         bildM = new Image(String.valueOf(getClass().getResource("/Arsto.jpg")));
+        ripyou = new Image(String.valueOf(getClass().getResource("/ripyou.jpg")));
+        heja = new Image(String.valueOf(getClass().getResource("/heja.jpg")));
         musicFile = "haha.mp3";
         sound = new Media(new File(musicFile).toURI().toString());
         mediaPlayer = new MediaPlayer(sound);
@@ -107,7 +111,7 @@ public class Game implements Fight {
         model.setMonsterHealth(0);
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
-        textArea.textProperty().bindBidirectional(model.textAreaProperty());
+        textArea.textProperty().bind(model.textAreaProperty());
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
                 mediaPlayer.play());
@@ -124,10 +128,8 @@ public class Game implements Fight {
     public void attack() {
         // Get random player damage between 0 - 8
         playerDamage = getPlayerDamage();
-        // Set monster damage to 0
-        monsterDamage = getMonsterDamage();
         // Get monster damage based on the current monsters race
-        monsterDamage = getMonsterDamage(monsterDamage);
+        getMonsterDamage();
         // pick attacking frase for player based on your random damage
         String playerAttackFrase = getString(playerDamage);
         // Pick attacking frase for monsters based on their damage
@@ -150,16 +152,12 @@ public class Game implements Fight {
             player.setHealth(0);
             model.setPlayerHealth(0);
             fourthButton.setVisible(false);
+            playerAvatar.setImage(ripyou);
         }
         if (currentMonster.getMonsterHealth() < 0) {
             currentMonster.Health(0);
             model.setMonsterHealth(0);
         }
-    }
-
-    private int getMonsterDamage() {
-        // random damage generator for monster
-        return 0;
     }
 
     private void AttackStageTexts(int playerDamage, int monsterDamage, String playerAttackFrase, String monsterAttackFrase) {
@@ -240,7 +238,7 @@ public class Game implements Fight {
         return playerAttackFrase;
     }
 
-    private int getMonsterDamage(int monsterDamage) {
+    private void getMonsterDamage() {
         switch (currentMonster.getRace()) {
             case TROLL:
                 monsterDamage = getRandomNumberInRange(0, 6);
@@ -255,7 +253,6 @@ public class Game implements Fight {
                 monsterDamage = getRandomNumberInRange(0, 7);
                 break;
         }
-        return monsterDamage;
     }
 
     private int getPlayerDamage() {
@@ -366,7 +363,7 @@ public class Game implements Fight {
             playerDamageHigh = 8;
         }
 
-        if (currentMonster.getMonsterHealth() <= 0) {
+        if (currentMonster.getMonsterHealth() <= 0 ) {
             switch (currentMonster.getRace()) {
                 case NinjaTurtle:
                     player.Excaliber = true;
@@ -474,6 +471,10 @@ public class Game implements Fight {
                 SetAllItemsToFalse();
                 beAbleToRunAway = true;
                 playerDamageHigh = 8;
+                notTwice1=0;
+                notTwice2=0;
+                notTwice3=0;
+                notTwice4=0;
                 break;
         }
     }
@@ -501,7 +502,7 @@ public class Game implements Fight {
                     fourthButton.setVisible(false);
                     firstButton.setText("Enter Smurfville");
                 } else {
-                    model.setTextArea("You tripple and are not able to run away anymore! ");
+                    model.setTextArea("You tripped and are not able to run away anymore! ");
                     fourthButton.setVisible(false);
                     beAbleToRunAway = false;
                 }
@@ -539,7 +540,8 @@ public class Game implements Fight {
 
     public void endTextMethodAfterRun() {
         model.setPlayerHealth(0);
-        model.setTextArea("You have betrayed your fellows." + "\nThe monster is still alive.");
+        model.setTextArea("It was a stupid move idiot! The monster found you and you have betreayed your fellow smurfs"
+                + "\nThe monster is still alive and taking over Smurfville.");
         thirdButton.setVisible(true);
         FirstButtonThirdButtonChangeText();
     }
@@ -552,5 +554,6 @@ public class Game implements Fight {
         fourthButton.setVisible(false);
         FirstButtonThirdButtonChangeText();
         beAbleToRunAway = true;
+        playerAvatar.setImage(heja);
     }
 }
