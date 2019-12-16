@@ -371,7 +371,7 @@ public class Game implements Fight {
             playerDamageHigh = 8;
         }
 
-        if (currentMonster.getMonsterHealth() <= 0) {
+        if (currentMonster.getMonsterHealth() <= 0 && !(currentMonster==null)) {
             switch (currentMonster.getRace()) {
                 case NinjaTurtle:
                     player.Excaliber = true;
