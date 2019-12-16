@@ -540,7 +540,8 @@ public class Game implements Fight {
 
     public void endTextMethodAfterRun() {
         model.setPlayerHealth(0);
-        model.setTextArea("You have betrayed your fellows." + "\nThe monster is still alive.");
+        model.setTextArea("It was a stupid move idiot! The monster found you and you have betreayed your fellow smurfs"
+                + "\nThe monster is still alive and taking over Smurfville.");
         thirdButton.setVisible(true);
         FirstButtonThirdButtonChangeText();
     }
