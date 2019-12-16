@@ -111,7 +111,7 @@ public class Game implements Fight {
         model.setMonsterHealth(0);
         newHealthbar.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
         monsterText.visibleProperty().bind(model.monsterHealthProperty().greaterThan(1));
-        textArea.textProperty().bindBidirectional(model.textAreaProperty());
+        textArea.textProperty().bind(model.textAreaProperty());
         SetLowOpacityOnAllItems();
         Platform.runLater(() ->
                 mediaPlayer.play());
@@ -128,10 +128,8 @@ public class Game implements Fight {
     public void attack() {
         // Get random player damage between 0 - 8
         playerDamage = getPlayerDamage();
-        // Set monster damage to 0
-        monsterDamage = getMonsterDamage();
         // Get monster damage based on the current monsters race
-        monsterDamage = getMonsterDamage(monsterDamage);
+        getMonsterDamage();
         // pick attacking frase for player based on your random damage
         String playerAttackFrase = getString(playerDamage);
         // Pick attacking frase for monsters based on their damage
@@ -160,11 +158,6 @@ public class Game implements Fight {
             currentMonster.Health(0);
             model.setMonsterHealth(0);
         }
-    }
-
-    private int getMonsterDamage() {
-        // random damage generator for monster
-        return 0;
     }
 
     private void AttackStageTexts(int playerDamage, int monsterDamage, String playerAttackFrase, String monsterAttackFrase) {
@@ -245,7 +238,7 @@ public class Game implements Fight {
         return playerAttackFrase;
     }
 
-    private int getMonsterDamage(int monsterDamage) {
+    private void getMonsterDamage() {
         switch (currentMonster.getRace()) {
             case TROLL:
                 monsterDamage = getRandomNumberInRange(0, 6);
@@ -260,7 +253,6 @@ public class Game implements Fight {
                 monsterDamage = getRandomNumberInRange(0, 7);
                 break;
         }
-        return monsterDamage;
     }
 
     private int getPlayerDamage() {
@@ -371,7 +363,7 @@ public class Game implements Fight {
             playerDamageHigh = 8;
         }
 
-        if (currentMonster.getMonsterHealth() <= 0 && !(currentMonster==null)) {
+        if (currentMonster.getMonsterHealth() <= 0 ) {
             switch (currentMonster.getRace()) {
                 case NinjaTurtle:
                     player.Excaliber = true;
@@ -479,6 +471,10 @@ public class Game implements Fight {
                 SetAllItemsToFalse();
                 beAbleToRunAway = true;
                 playerDamageHigh = 8;
+                notTwice1=0;
+                notTwice2=0;
+                notTwice3=0;
+                notTwice4=0;
                 break;
         }
     }
@@ -506,7 +502,7 @@ public class Game implements Fight {
                     fourthButton.setVisible(false);
                     firstButton.setText("Enter Smurfville");
                 } else {
-                    model.setTextArea("You tripple and are not able to run away anymore! ");
+                    model.setTextArea("You tripped and are not able to run away anymore! ");
                     fourthButton.setVisible(false);
                     beAbleToRunAway = false;
                 }
