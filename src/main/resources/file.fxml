@@ -24,7 +24,7 @@
 
                   <ImageView fx:id="loggoImage" fitHeight="120.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="https://imgur.com/rMghdoY.png" />
+            <Image url="@logo.png" />
          </image>
       </ImageView>
    </top>
